@@ -184,6 +184,58 @@ export const companies: Company[] = [
     tags: ["emissions", "methane", "carbon", "ESG"],
     website: "https://www.ghgsat.com",
   },
+  {
+    id: "synspective",
+    name: "Synspective",
+    domain: "Space",
+    capabilities: ["Data Collection", "Analytics & AI", "Data Processing"],
+    description:
+      "Japanese SAR satellite constellation company providing land displacement monitoring, infrastructure analytics, and disaster response data from space.",
+    founded: 2018,
+    hq: "Tokyo, Japan",
+    size: "Growth",
+    tags: ["SAR", "infrastructure", "disaster response", "Japan"],
+    website: "https://www.synspective.com",
+  },
+  {
+    id: "earthdaily",
+    name: "EarthDaily Analytics",
+    domain: "Space",
+    capabilities: ["Data Collection", "Analytics & AI", "Platform / Infrastructure"],
+    description:
+      "Developing a next-generation Earth observation constellation for daily global imaging combined with cloud-based analytics for agriculture and environment.",
+    founded: 2019,
+    hq: "Vancouver, Canada",
+    size: "Growth",
+    tags: ["daily imaging", "agriculture", "analytics", "constellation"],
+    website: "https://www.earthdaily.com",
+  },
+  {
+    id: "muon-space",
+    name: "Muon Space",
+    domain: "Space",
+    capabilities: ["Data Collection", "Hardware / Sensors", "Data Processing"],
+    description:
+      "Vertically integrated small satellite company building multimodal sensing constellations to address climate change with weather and wildfire monitoring.",
+    founded: 2021,
+    hq: "Mountain View, CA",
+    size: "Startup",
+    tags: ["climate", "wildfire", "weather", "multimodal"],
+    website: "https://www.muonspace.com",
+  },
+  {
+    id: "albedo",
+    name: "Albedo",
+    domain: "Space",
+    capabilities: ["Data Collection"],
+    description:
+      "Building very low Earth orbit satellites to capture 10cm resolution visible and 2m thermal imagery, bridging the gap between aerial and satellite data.",
+    founded: 2020,
+    hq: "Denver, CO",
+    size: "Startup",
+    tags: ["VLEO", "thermal", "ultra-high resolution", "10cm"],
+    website: "https://www.albedo.com",
+  },
 
   // ─────────────────────────── AERIAL ───────────────────────────
   {
@@ -302,6 +354,45 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["aerial camera", "national coverage", "orthophoto"],
     website: "https://www.vexcel-imaging.com",
+  },
+  {
+    id: "propeller-aero",
+    name: "Propeller Aero",
+    domain: "Aerial",
+    capabilities: ["Data Processing", "Analytics & AI", "Platform / Infrastructure"],
+    description:
+      "Drone-based survey platform for earthworks and construction, providing real-time stockpile measurements, progress tracking, and site analytics.",
+    founded: 2014,
+    hq: "Denver, CO",
+    size: "Growth",
+    tags: ["construction", "earthworks", "stockpile", "site survey"],
+    website: "https://www.propelleraero.com",
+  },
+  {
+    id: "terra-drone",
+    name: "Terra Drone",
+    domain: "Aerial",
+    capabilities: ["Hardware / Sensors", "Data Collection", "Consulting & Services"],
+    description:
+      "Global drone services and technology company offering UTM, inspection, and surveying solutions for energy, mining, and construction industries.",
+    founded: 2016,
+    hq: "Tokyo, Japan",
+    size: "Growth",
+    tags: ["UTM", "inspection", "drone services", "global"],
+    website: "https://www.terra-drone.net",
+  },
+  {
+    id: "agisoft",
+    name: "Agisoft",
+    domain: "Aerial",
+    capabilities: ["Data Processing", "Mapping & Visualization"],
+    description:
+      "Developer of Metashape, a professional photogrammetry software for processing drone and aerial imagery into 3D models, DEMs, and orthomosaics.",
+    founded: 2006,
+    hq: "St. Petersburg, Russia",
+    size: "Growth",
+    tags: ["photogrammetry", "Metashape", "3D modeling", "DEM"],
+    website: "https://www.agisoft.com",
   },
 
   // ─────────────────────────── TERRESTRIAL ───────────────────────────
@@ -474,6 +565,45 @@ export const companies: Company[] = [
     tags: ["open data", "base map", "interoperability", "open source"],
     website: "https://overturemaps.org",
   },
+  {
+    id: "navvis",
+    name: "NavVis",
+    domain: "Terrestrial",
+    capabilities: ["Hardware / Sensors", "Data Collection", "Mapping & Visualization"],
+    description:
+      "Indoor spatial intelligence company providing mobile mapping systems and a digital twin platform for large-scale facility management and manufacturing.",
+    founded: 2013,
+    hq: "Munich, Germany",
+    size: "Growth",
+    tags: ["indoor mapping", "digital twin", "mobile mapping", "manufacturing"],
+    website: "https://www.navvis.com",
+  },
+  {
+    id: "nearabl",
+    name: "Pointr",
+    domain: "Terrestrial",
+    capabilities: ["Platform / Infrastructure", "Mapping & Visualization"],
+    description:
+      "Indoor positioning and wayfinding platform using BLE, Wi-Fi, and sensor fusion for airports, hospitals, and large venues with centimeter-accurate location.",
+    founded: 2013,
+    hq: "London, UK",
+    size: "Growth",
+    tags: ["indoor positioning", "wayfinding", "BLE", "venues"],
+    website: "https://www.pointr.tech",
+  },
+  {
+    id: "nextav",
+    name: "Nextav",
+    domain: "Terrestrial",
+    capabilities: ["Hardware / Sensors", "Data Collection"],
+    description:
+      "Ground-penetrating radar (GPR) solutions for mapping underground utilities, subsurface conditions, and infrastructure assessment without excavation.",
+    founded: 2015,
+    hq: "Houston, TX",
+    size: "Startup",
+    tags: ["GPR", "underground utilities", "subsurface", "infrastructure"],
+    website: "https://www.nextav.com",
+  },
 
   // ─────────────────────────── MARINE SURFACE ───────────────────────────
   {
@@ -566,6 +696,45 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["satellite AIS", "vessel tracking", "maritime safety"],
     website: "https://www.spire.com/maritime",
+  },
+  {
+    id: "windward",
+    name: "Windward",
+    domain: "Marine Surface",
+    capabilities: ["Analytics & AI", "Platform / Infrastructure"],
+    description:
+      "AI-powered maritime intelligence platform fusing AIS, satellite imagery, and behavioral analytics for compliance, trade, and risk management.",
+    founded: 2010,
+    hq: "Tel Aviv, Israel",
+    size: "Growth",
+    tags: ["maritime AI", "compliance", "risk", "trade intelligence"],
+    website: "https://www.wnwd.com",
+  },
+  {
+    id: "oceanalpha",
+    name: "OceanAlpha",
+    domain: "Marine Surface",
+    capabilities: ["Hardware / Sensors", "Data Collection"],
+    description:
+      "World's largest unmanned surface vessel manufacturer providing USVs for hydrographic survey, environmental monitoring, and port security.",
+    founded: 2010,
+    hq: "Zhuhai, China",
+    size: "Growth",
+    tags: ["USV", "hydrographic survey", "environmental", "port security"],
+    website: "https://www.oceanalpha.com",
+  },
+  {
+    id: "xylem",
+    name: "Xylem (YSI)",
+    domain: "Marine Surface",
+    capabilities: ["Hardware / Sensors", "Data Collection", "Data Processing"],
+    description:
+      "Water technology company providing sensors, buoys, and monitoring platforms for water quality, flow, and environmental data across coastal and freshwater systems.",
+    founded: 2011,
+    hq: "Washington, DC",
+    size: "Enterprise",
+    tags: ["water quality", "monitoring", "buoys", "environmental"],
+    website: "https://www.xylem.com",
   },
 
   // ─────────────────────────── SUBSEA ───────────────────────────
@@ -698,6 +867,45 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["AUV", "cloud analytics", "subsea survey", "autonomous"],
     website: "https://www.terradepth.com",
+  },
+  {
+    id: "bluefin",
+    name: "General Dynamics Mission Systems (Bluefin)",
+    domain: "Subsea",
+    capabilities: ["Hardware / Sensors", "Data Collection"],
+    description:
+      "Manufactures autonomous underwater vehicles for defense and commercial seabed survey, mine countermeasures, and underwater ISR operations.",
+    founded: 1997,
+    hq: "Quincy, MA",
+    size: "Enterprise",
+    tags: ["AUV", "defense", "MCM", "ISR"],
+    website: "https://gdmissionsystems.com",
+  },
+  {
+    id: "cellula-robotics",
+    name: "Cellula Robotics",
+    domain: "Subsea",
+    capabilities: ["Hardware / Sensors", "Data Collection"],
+    description:
+      "Develops hydrogen fuel cell-powered autonomous underwater vehicles for ultra-long-endurance subsea survey and inspection missions.",
+    founded: 2003,
+    hq: "Vancouver, Canada",
+    size: "Growth",
+    tags: ["fuel cell AUV", "long endurance", "subsea survey", "hydrogen"],
+    website: "https://www.cellula.com",
+  },
+  {
+    id: "nortek",
+    name: "Nortek",
+    domain: "Subsea",
+    capabilities: ["Hardware / Sensors", "Data Collection"],
+    description:
+      "Designs and manufactures acoustic Doppler instruments for measuring ocean currents, waves, and turbulence in coastal, offshore, and deep-water environments.",
+    founded: 1996,
+    hq: "Rud, Norway",
+    size: "Growth",
+    tags: ["ADCP", "current profiler", "waves", "turbulence"],
+    website: "https://www.nortekgroup.com",
   },
 
   // ─────────────────────────── CROSS-DOMAIN ───────────────────────────
