@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from "react";
 import { Company, DOMAIN_COLORS, SENSOR_TYPE_COLORS, SensorType } from "@/data/types";
 import { useFinancialData, formatPrice, formatVolume } from "@/hooks/useFinancialData";
+import PriceHistoryChart from "./PriceHistoryChart";
 
 interface CompanyDetailProps {
   company: Company;
@@ -206,6 +207,9 @@ export default function CompanyDetail({ company, onClose }: CompanyDetailProps) 
               ) : (
                 <p className="text-xs text-white/25">Market data unavailable</p>
               )}
+
+              {/* Price History Chart */}
+              <PriceHistoryChart companyId={company.id} />
             </div>
           )}
 

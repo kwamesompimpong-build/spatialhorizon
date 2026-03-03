@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
-import { companies } from "@/data/companies";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import { companies as staticCompanies } from "@/data/companies";
 import {
   Company,
   DomainLayer,
@@ -20,6 +20,17 @@ import { getDomainIcon } from "@/components/DomainIcons";
 type ViewMode = "map" | "stats";
 
 export default function Home() {
+  const [companies, setCompanies] = useState<Company[]>(staticCompanies);
+
+  useEffect(() => {
+    fetch("/api/companies")
+      .then((r) => r.json())
+      .then((data: Company[]) => {
+        if (Array.isArray(data) && data.length > 0) setCompanies(data);
+      })
+      .catch(() => {});
+  }, []);
+
   const [search, setSearch] = useState("");
   const [activeDomains, setActiveDomains] = useState<Set<DomainLayer>>(new Set());
   const [activeCapabilities, setActiveCapabilities] = useState<Set<Capability>>(new Set());
@@ -157,6 +168,13 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-2">
+              <a
+                href="/submit"
+                className="text-[11px] px-3 py-1.5 rounded-lg border border-indigo-500/20 text-indigo-400/70
+                           hover:bg-indigo-500/10 transition-all"
+              >
+                + Submit Company
+              </a>
               <div className="flex items-center bg-white/[0.04] rounded-lg border border-white/[0.06] p-0.5">
                 <button
                   onClick={() => setViewMode("map")}
