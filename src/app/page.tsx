@@ -27,6 +27,19 @@ export default function Home() {
   const [activeSize, setActiveSize] = useState<CompanySize | null>(null);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("map");
+  const [collapsedDomains, setCollapsedDomains] = useState<Set<DomainLayer>>(new Set());
+
+  const toggleCollapse = useCallback((domain: DomainLayer) => {
+    setCollapsedDomains((prev) => {
+      const next = new Set(prev);
+      if (next.has(domain)) {
+        next.delete(domain);
+      } else {
+        next.add(domain);
+      }
+      return next;
+    });
+  }, []);
 
   const toggleDomain = useCallback((domain: DomainLayer) => {
     setActiveDomains((prev) => {
@@ -266,6 +279,8 @@ export default function Home() {
                       companies={domainCompanies}
                       onCompanyClick={setSelectedCompany}
                       icon={getDomainIcon(domain)}
+                      collapsed={collapsedDomains.has(domain)}
+                      onToggleCollapse={() => toggleCollapse(domain)}
                     />
                   );
                 })}

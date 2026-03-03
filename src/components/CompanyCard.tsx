@@ -51,6 +51,31 @@ export default function CompanyCard({ company, onClick }: CompanyCardProps) {
         <p className="text-[11px] text-white/35 mt-1 line-clamp-2 leading-relaxed">
           {company.description}
         </p>
+        {/* Funding / Market Cap badge */}
+        {(company.marketCap || company.funding) && (
+          <div className="flex items-center gap-1.5 mt-1.5">
+            {company.marketCap && (
+              <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-yellow-500/10 text-yellow-400/70 border border-yellow-500/10 font-medium">
+                MCap {company.marketCap}
+              </span>
+            )}
+            {!company.marketCap && company.funding?.valuation && (
+              <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400/70 border border-purple-500/10 font-medium">
+                Val. {company.funding.valuation}
+              </span>
+            )}
+            {!company.marketCap && company.funding?.totalRaised && (
+              <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-400/70 border border-cyan-500/10 font-medium">
+                Raised {company.funding.totalRaised}
+              </span>
+            )}
+            {!company.marketCap && company.funding?.acquiredPrice && (
+              <span className="text-[9px] px-1.5 py-0.5 rounded-md bg-orange-500/10 text-orange-400/70 border border-orange-500/10 font-medium">
+                Acq. {company.funding.acquiredPrice}
+              </span>
+            )}
+          </div>
+        )}
         {/* Sensor type dots */}
         {company.sensorTypes.length > 0 && (
           <div className="flex items-center gap-1 mt-2">

@@ -16,6 +16,7 @@ export const companies: Company[] = [
     tags: ["earth observation", "satellite imagery", "daily monitoring", "smallsat"],
     website: "https://www.planet.com",
     financial: { ticker: "PL", exchange: "NYSE" },
+    marketCap: "~$2.2B",
   },
   {
     id: "maxar",
@@ -30,6 +31,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["high resolution", "defense", "satellite imagery", "geoint", "acquired $6.4B"],
     website: "https://www.maxar.com",
+    funding: { lastRound: "Acquired by Advent International (2023)", acquiredPrice: "$6.4B" },
   },
   {
     id: "airbus-ds",
@@ -45,6 +47,7 @@ export const companies: Company[] = [
     tags: ["earth observation", "defense", "radar", "optical", "Pl\u00e9iades Neo"],
     website: "https://www.airbus.com/en/space",
     financial: { ticker: "AIR.PA", exchange: "Euronext" },
+    marketCap: "~$120B",
   },
   {
     id: "blacksky",
@@ -60,6 +63,7 @@ export const companies: Company[] = [
     tags: ["real-time", "geoint", "AI", "monitoring", "Spectra AI"],
     website: "https://www.blacksky.com",
     financial: { ticker: "BKSY", exchange: "NYSE" },
+    marketCap: "~$500M",
   },
   {
     id: "satellogic",
@@ -75,6 +79,7 @@ export const companies: Company[] = [
     tags: ["hyperspectral", "multispectral", "sub-meter", "constellation", "Argentina"],
     website: "https://www.satellogic.com",
     financial: { ticker: "SATL", exchange: "NASDAQ" },
+    marketCap: "~$200M",
   },
   {
     id: "earthdaily",
@@ -83,12 +88,13 @@ export const companies: Company[] = [
     capabilities: ["Data Collection", "Analytics & AI", "Platform / Infrastructure"],
     sensorTypes: ["Optical / RGB", "Multispectral"],
     description:
-      "Building a 10-satellite daily 5m multispectral constellation combined with cloud-based analytics for agriculture and environment. ~$200M+ invested.",
+      "Building a 10-satellite daily 5m multispectral constellation combined with cloud-based analytics for agriculture and environment. Acquired Descartes Labs to bolster geospatial AI capabilities. ~$200M+ invested.",
     founded: 2019,
     hq: "Vancouver, Canada",
     size: "Growth",
-    tags: ["daily imaging", "agriculture", "analytics", "constellation"],
+    tags: ["daily imaging", "agriculture", "analytics", "constellation", "acquired Descartes Labs"],
     website: "https://www.earthdaily.com",
+    funding: { totalRaised: "$200M+", lastRound: "Private" },
   },
   {
     id: "albedo",
@@ -103,6 +109,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["VLEO", "thermal", "ultra-high resolution", "10cm", "Series B"],
     website: "https://www.albedo.com",
+    funding: { totalRaised: "$132M+", lastRound: "Series B" },
   },
   {
     id: "chang-guang",
@@ -117,6 +124,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["Jilin-1", "video satellite", "China", "mega-constellation"],
     website: "https://www.jl1.cn",
+    funding: { totalRaised: "~$375M" },
   },
   {
     id: "beijing-spaceview",
@@ -229,6 +237,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["SAR", "radar", "all-weather", "flood monitoring", "unicorn"],
     website: "https://www.iceye.com",
+    funding: { totalRaised: "$518M+", lastRound: "Series E", valuation: "$1B+" },
   },
   {
     id: "capella-space",
@@ -243,6 +252,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["SAR", "X-band", "on-demand", "high resolution"],
     website: "https://www.capellaspace.com",
+    funding: { totalRaised: "$300M+", lastRound: "Series D" },
   },
   {
     id: "umbra",
@@ -257,6 +267,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["SAR", "ultra-high resolution", "API", "tasking"],
     website: "https://www.umbra.space",
+    funding: { totalRaised: "$115M+", lastRound: "Series B" },
   },
   {
     id: "mda-space",
@@ -272,6 +283,7 @@ export const companies: Company[] = [
     tags: ["RADARSAT", "SAR", "space robotics", "geointelligence"],
     website: "https://mda.space",
     financial: { ticker: "MDA.TO", exchange: "TSX" },
+    marketCap: "~$3.5B CAD",
   },
   {
     id: "synspective",
@@ -287,6 +299,7 @@ export const companies: Company[] = [
     tags: ["SAR", "StriX", "infrastructure", "disaster response", "Japan"],
     website: "https://www.synspective.com",
     financial: { ticker: "290A.T", exchange: "TSE" },
+    marketCap: "~¥50B",
   },
   {
     id: "iqps",
@@ -302,6 +315,7 @@ export const companies: Company[] = [
     tags: ["SAR", "compact satellite", "Japan", "infrastructure"],
     website: "https://www.iqps.net",
     financial: { ticker: "5595.T", exchange: "TSE" },
+    marketCap: "~¥30B",
   },
   {
     id: "spacety",
@@ -316,6 +330,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["SAR", "C-band", "X-band", "China"],
     website: "https://www.spacety.com",
+    funding: { totalRaised: "$36M+" },
   },
   {
     id: "e-geos",
@@ -344,6 +359,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["SAR", "India", "maritime surveillance", "border monitoring"],
     website: "https://www.piersight.space",
+    funding: { totalRaised: "$6.6M", lastRound: "Seed" },
   },
   {
     id: "array-labs",
@@ -358,6 +374,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["3D SAR", "point cloud from space", "novel imaging"],
     website: "https://www.arraylabs.com",
+    funding: { totalRaised: "$5.6M", lastRound: "Seed" },
   },
   {
     id: "pixxel",
@@ -372,6 +389,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["hyperspectral", "Firefly", "agriculture", "mining", "Google-backed"],
     website: "https://www.pixxel.space",
+    funding: { totalRaised: "$95M+", lastRound: "Series B" },
   },
   {
     id: "orbital-sidekick",
@@ -386,6 +404,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["hyperspectral", "leak detection", "methane", "SWIR"],
     website: "https://www.orbitalsidekick.com",
+    funding: { totalRaised: "$55.4M", lastRound: "Series B" },
   },
   {
     id: "kuva-space",
@@ -400,6 +419,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["hyperspectral", "microsatellite", "Finland"],
     website: "https://www.kuvaspace.com",
+    funding: { totalRaised: "€23.3M", lastRound: "Series A" },
   },
   {
     id: "wyvern",
@@ -414,6 +434,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["hyperspectral", "agriculture", "mining", "YC-backed"],
     website: "https://www.wyvern.space",
+    funding: { totalRaised: "~$10M+" },
   },
   {
     id: "hawkeye360",
@@ -428,6 +449,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["RF signals", "SIGINT", "geolocation", "spectrum", "maritime security"],
     website: "https://www.he360.com",
+    funding: { totalRaised: "$378M+", lastRound: "Series D-1" },
   },
   {
     id: "kleos-space",
@@ -443,6 +465,7 @@ export const companies: Company[] = [
     tags: ["RF reconnaissance", "geolocation", "defense", "maritime"],
     website: "https://www.kleos.space",
     financial: { ticker: "KSS.AX", exchange: "ASX" },
+    marketCap: "~$50M AUD",
   },
   {
     id: "unseenlabs",
@@ -457,6 +480,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["RF detection", "maritime", "France", "electromagnetic"],
     website: "https://www.unseenlabs.space",
+    funding: { totalRaised: "€20M+", lastRound: "Series B" },
   },
   {
     id: "spire-global",
@@ -472,6 +496,7 @@ export const companies: Company[] = [
     tags: ["weather", "maritime tracking", "AIS", "nanosatellite", "multi-mission"],
     website: "https://www.spire.com",
     financial: { ticker: "SPIR", exchange: "NYSE" },
+    marketCap: "~$700M",
   },
   {
     id: "ghgsat",
@@ -486,6 +511,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["emissions", "methane", "carbon", "ESG", "facility-level"],
     website: "https://www.ghgsat.com",
+    funding: { totalRaised: "$130M+", lastRound: "Series D" },
   },
   {
     id: "carbon-mapper",
@@ -500,6 +526,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["methane", "CO2", "Tanager", "NASA JPL", "non-profit"],
     website: "https://carbonmapper.org",
+    funding: { totalRaised: "$100M+ (grants & philanthropy)" },
   },
   {
     id: "bluefield-tech",
@@ -528,6 +555,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["weather", "radar", "precipitation", "forecasting", "AI-native"],
     website: "https://www.tomorrow.io",
+    funding: { totalRaised: "$420M+", lastRound: "Series F", valuation: "~$1B+" },
   },
   {
     id: "planetiq",
@@ -542,6 +570,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["weather", "radio occultation", "NOAA", "GNSS"],
     website: "https://www.planetiq.com",
+    funding: { totalRaised: "~$50M+" },
   },
   {
     id: "climavision",
@@ -556,6 +585,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["weather", "radar", "observation gaps", "forecasting"],
     website: "https://www.climavision.com",
+    funding: { totalRaised: "~$100M+", lastRound: "Series B" },
   },
   {
     id: "xona",
@@ -570,6 +600,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["LEO PNT", "anti-jam", "centimeter accuracy", "GPS alternative"],
     website: "https://www.xonaspace.com",
+    funding: { totalRaised: "$150M+", lastRound: "Series B" },
   },
   {
     id: "swift-navigation",
@@ -584,6 +615,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["precise positioning", "GNSS", "centimeter accuracy", "Sapcorda"],
     website: "https://www.swiftnav.com",
+    funding: { totalRaised: "$160M+", lastRound: "Series D" },
   },
   {
     id: "ororatech",
@@ -598,6 +630,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["thermal IR", "wildfire detection", "onboard AI", "real-time"],
     website: "https://ororatech.com",
+    funding: { totalRaised: "€52M+", lastRound: "Series B (€37M)" },
   },
   {
     id: "space42",
@@ -612,6 +645,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["UAE", "SAR", "geospatial analytics", "sovereign space"],
     website: "https://www.space42.ai",
+    marketCap: "~$4.1B",
   },
   {
     id: "neo-space-group",
@@ -640,6 +674,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["climate", "wildfire", "weather", "multimodal"],
     website: "https://www.muonspace.com",
+    funding: { totalRaised: "$87M+", lastRound: "Series B" },
   },
   // ─────────────────────────── AERIAL ───────────────────────────
   {
@@ -655,6 +690,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["drone manufacturer", "70% market share", "Matrice", "Mavic"],
     website: "https://www.dji.com",
+    funding: { valuation: "~$15B" },
   },
   {
     id: "skydio",
@@ -669,6 +705,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["autonomous drone", "AI", "3D scan", "inspection", "unicorn"],
     website: "https://www.skydio.com",
+    funding: { totalRaised: "$740M+", lastRound: "Series F", valuation: "$2.2B" },
   },
   {
     id: "wingtra",
@@ -683,6 +720,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["VTOL", "drone", "survey", "mapping"],
     website: "https://www.wingtra.com",
+    funding: { totalRaised: "~$76M" },
   },
   {
     id: "sensefly",
@@ -698,6 +736,7 @@ export const companies: Company[] = [
     tags: ["drone", "fixed-wing", "eBee X", "agriculture"],
     website: "https://www.ageagle.com",
     financial: { ticker: "UAVS", exchange: "NYSE American" },
+    marketCap: "~$10M",
   },
   {
     id: "quantum-systems",
@@ -712,6 +751,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["eVTOL", "fixed-wing", "survey", "defense", "Trinity F90+"],
     website: "https://www.quantum-systems.com",
+    funding: { totalRaised: "€68M+" },
   },
   {
     id: "parrot",
@@ -727,6 +767,7 @@ export const companies: Company[] = [
     tags: ["ANAFI", "Pix4D owner", "France", "consumer + enterprise"],
     website: "https://www.parrot.com",
     financial: { ticker: "PARRO.PA", exchange: "Euronext" },
+    marketCap: "~$200M",
   },
   {
     id: "ideaforge",
@@ -742,6 +783,7 @@ export const companies: Company[] = [
     tags: ["India", "defense drone", "surveillance", "50% market share", "IPO 2023"],
     website: "https://www.ideaforgetech.com",
     financial: { ticker: "IDEAFORGE.NS", exchange: "NSE" },
+    marketCap: "~₹6,000Cr (~$700M)",
   },
   {
     id: "terra-drone",
@@ -756,6 +798,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["UTM", "inspection", "drone services", "global", "#1 drone services"],
     website: "https://www.terra-drone.net",
+    funding: { totalRaised: "$125M+", lastRound: "Series C" },
   },
   {
     id: "draganfly",
@@ -771,6 +814,7 @@ export const companies: Company[] = [
     tags: ["Canada", "public safety", "agriculture", "inspection"],
     website: "https://www.draganfly.com",
     financial: { ticker: "DPRO", exchange: "NASDAQ" },
+    marketCap: "~$20M",
   },
   {
     id: "nearmap",
@@ -785,6 +829,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["aerial imagery", "3D", "AI", "urban", "acquired $1.055B"],
     website: "https://www.nearmap.com",
+    funding: { lastRound: "Acquired by Thoma Bravo (2023)", acquiredPrice: "A$1.055B" },
   },
   {
     id: "eagleview",
@@ -799,6 +844,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["roof measurement", "insurance", "property", "infrastructure"],
     website: "https://www.eagleview.com",
+    funding: { lastRound: "Vista Equity Partners", valuation: "~$1B+ (PE-backed)" },
   },
   {
     id: "vexcel",
@@ -828,6 +874,7 @@ export const companies: Company[] = [
     tags: ["aerial survey", "LiDAR", "geospatial services"],
     website: "https://www.nv5.com",
     financial: { ticker: "NVEE", exchange: "NASDAQ" },
+    marketCap: "~$1.6B",
   },
   {
     id: "pasco",
@@ -843,6 +890,7 @@ export const companies: Company[] = [
     tags: ["Japan", "aerial survey", "government", "infrastructure"],
     website: "https://www.pasco.co.jp",
     financial: { ticker: "9232.T", exchange: "TSE" },
+    marketCap: "~¥50B",
   },
   {
     id: "genesys-intl",
@@ -858,6 +906,7 @@ export const companies: Company[] = [
     tags: ["India", "digital twin", "aerial survey", "LiDAR"],
     website: "https://www.genesysinternational.com",
     financial: { ticker: "506109.BO", exchange: "BSE" },
+    marketCap: "~₹3,000Cr (~$360M)",
   },
   {
     id: "pix4d",
@@ -872,6 +921,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["photogrammetry", "3D mapping", "point cloud", "orthomosaic"],
     website: "https://www.pix4d.com",
+    funding: { totalRaised: "~$35M" },
   },
   {
     id: "dronedeploy",
@@ -886,6 +936,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["cloud platform", "construction", "mining", "agriculture"],
     website: "https://www.dronedeploy.com",
+    funding: { totalRaised: "$217M+", lastRound: "Series F" },
   },
   {
     id: "propeller-aero",
@@ -900,6 +951,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["construction", "earthworks", "stockpile", "site survey"],
     website: "https://www.propelleraero.com",
+    funding: { totalRaised: "$71M+", lastRound: "Series C" },
   },
   {
     id: "agisoft",
@@ -928,6 +980,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["stratospheric balloon", "10cm resolution", "reusable", "low cost"],
     website: "https://www.nearspacelabs.com",
+    funding: { totalRaised: "$33M+", lastRound: "Series A" },
   },
   {
     id: "world-view",
@@ -942,6 +995,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["stratospheric", "defense ISR", "Stratollite", "persistent"],
     website: "https://www.worldview.space",
+    funding: { totalRaised: "$150M+" },
   },
   {
     id: "skydweller",
@@ -956,6 +1010,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["HAPS", "solar-powered", "persistent flight", "Palantir partner"],
     website: "https://www.skydweller.aero",
+    funding: { totalRaised: "$80M+" },
   },
   {
     id: "aerovironment",
@@ -971,6 +1026,7 @@ export const companies: Company[] = [
     tags: ["defense", "Sunglider", "tactical UAS", "HAPS"],
     website: "https://www.avinc.com",
     financial: { ticker: "AVAV", exchange: "NASDAQ" },
+    marketCap: "~$6B",
   },
   {
     id: "hesai",
@@ -986,6 +1042,7 @@ export const companies: Company[] = [
     tags: ["LiDAR", "47% market share", "autonomous vehicles", "3D sensors"],
     website: "https://www.hesaitech.com",
     financial: { ticker: "HSAI", exchange: "NASDAQ" },
+    marketCap: "~$1.8B",
   },
   {
     id: "lidar-usa",
@@ -1073,6 +1130,7 @@ export const companies: Company[] = [
     tags: ["GNSS", "surveying", "construction", "agriculture", "Big Three"],
     website: "https://www.trimble.com",
     financial: { ticker: "TRMB", exchange: "NASDAQ" },
+    marketCap: "~$16B",
   },
   {
     id: "hexagon",
@@ -1088,6 +1146,7 @@ export const companies: Company[] = [
     tags: ["sensors", "geospatial", "autonomous", "Big Three", "Leica"],
     website: "https://hexagon.com",
     financial: { ticker: "HEXA-B.ST", exchange: "Stockholm" },
+    marketCap: "~$28B",
   },
   {
     id: "topcon",
@@ -1103,6 +1162,7 @@ export const companies: Company[] = [
     tags: ["GNSS", "total station", "machine control", "construction", "Big Three"],
     website: "https://www.topconpositioning.com",
     financial: { ticker: "7732.T", exchange: "TSE" },
+    marketCap: "~¥400B (~$2.7B)",
   },
   {
     id: "chc-nav",
@@ -1132,6 +1192,7 @@ export const companies: Company[] = [
     tags: ["GNSS", "China", "RTK", "surveying"],
     website: "https://www.hi-target.com.cn",
     financial: { ticker: "300177.SZ", exchange: "SZSE" },
+    marketCap: "~¥5B (~$700M)",
   },
   {
     id: "septentrio",
@@ -1161,6 +1222,7 @@ export const companies: Company[] = [
     tags: ["GPS", "consumer", "aviation", "marine", "fitness"],
     website: "https://www.garmin.com",
     financial: { ticker: "GRMN", exchange: "NYSE" },
+    marketCap: "~$42B",
   },
   {
     id: "u-blox",
@@ -1176,6 +1238,7 @@ export const companies: Company[] = [
     tags: ["GNSS chipset", "IoT", "automotive", "positioning module"],
     website: "https://www.u-blox.com",
     financial: { ticker: "UBXN.SW", exchange: "SIX" },
+    marketCap: "~CHF 1.5B (~$1.7B)",
   },
   {
     id: "esri",
@@ -1190,6 +1253,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["GIS", "ArcGIS", "spatial analysis", "mapping", ">$2B revenue"],
     website: "https://www.esri.com",
+    funding: { valuation: "Private (est. $2B+ annual revenue)" },
   },
   {
     id: "here",
@@ -1204,6 +1268,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["mapping", "navigation", "location platform", "automotive", "HD maps"],
     website: "https://www.here.com",
+    funding: { valuation: "~$4B (consortium-owned)" },
   },
   {
     id: "tomtom",
@@ -1219,6 +1284,7 @@ export const companies: Company[] = [
     tags: ["maps", "navigation", "traffic", "automotive"],
     website: "https://www.tomtom.com",
     financial: { ticker: "TOM2.AS", exchange: "Euronext" },
+    marketCap: "~€1.5B (~$1.6B)",
   },
   {
     id: "mapbox",
@@ -1233,6 +1299,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["developer tools", "maps API", "routing", "visualization", "640M+ users"],
     website: "https://www.mapbox.com",
+    funding: { totalRaised: "$507M+", lastRound: "Series C", valuation: "~$1B+" },
   },
   {
     id: "navinfo",
@@ -1248,6 +1315,7 @@ export const companies: Company[] = [
     tags: ["HD maps", "autonomous driving", "China", "Tencent-backed"],
     website: "https://www.navinfo.com",
     financial: { ticker: "002405.SZ", exchange: "SZSE" },
+    marketCap: "~¥35B (~$4.8B)",
   },
   {
     id: "zenrin",
@@ -1263,6 +1331,7 @@ export const companies: Company[] = [
     tags: ["Japan", "#1 map data", "navigation", "detailed mapping"],
     website: "https://www.zenrin.co.jp",
     financial: { ticker: "9474.T", exchange: "TSE" },
+    marketCap: "~¥80B (~$550M)",
   },
   {
     id: "mapmyindia",
@@ -1278,6 +1347,7 @@ export const companies: Company[] = [
     tags: ["India", "maps", "navigation", "government", "200M+ users"],
     website: "https://www.mapmyindia.com",
     financial: { ticker: "MAPMYINDIA.NS", exchange: "NSE" },
+    marketCap: "~₹15,000Cr (~$1.8B)",
   },
   {
     id: "faro",
@@ -1293,6 +1363,7 @@ export const companies: Company[] = [
     tags: ["laser scanner", "3D measurement", "BIM", "reality capture"],
     website: "https://www.faro.com",
     financial: { ticker: "FARO", exchange: "NASDAQ" },
+    marketCap: "~$1.5B",
   },
   {
     id: "ouster",
@@ -1308,6 +1379,7 @@ export const companies: Company[] = [
     tags: ["LiDAR", "autonomous vehicles", "robotics", "smart infrastructure"],
     website: "https://ouster.com",
     financial: { ticker: "OUST", exchange: "NYSE" },
+    marketCap: "~$500M",
   },
   {
     id: "innoviz",
@@ -1323,6 +1395,7 @@ export const companies: Company[] = [
     tags: ["automotive LiDAR", "solid-state", "Israel", "autonomous driving"],
     website: "https://www.innoviz.tech",
     financial: { ticker: "INVZ", exchange: "NASDAQ" },
+    marketCap: "~$400M",
   },
   {
     id: "robosense",
@@ -1338,6 +1411,7 @@ export const companies: Company[] = [
     tags: ["LiDAR", "automotive", "robotics", "China"],
     website: "https://www.robosense.ai",
     financial: { ticker: "2498.HK", exchange: "HKEX" },
+    marketCap: "~HK$15B (~$1.9B)",
   },
   {
     id: "matterport",
@@ -1352,6 +1426,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["3D capture", "digital twin", "real estate", "acquired $1.6B"],
     website: "https://www.matterport.com",
+    funding: { lastRound: "Acquired by CoStar (2024)", acquiredPrice: "~$1.6B" },
   },
   {
     id: "navvis",
@@ -1366,6 +1441,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["indoor mapping", "digital twin", "mobile mapping", "manufacturing"],
     website: "https://www.navvis.com",
+    funding: { totalRaised: "~$100M" },
   },
   {
     id: "emesent",
@@ -1380,6 +1456,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["GPS-denied", "Hovermap", "mining", "autonomous mapping"],
     website: "https://www.emesent.com",
+    funding: { totalRaised: "~$37M" },
   },
   {
     id: "cyclomedia",
@@ -1394,6 +1471,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["street-level imagery", "360 panoramic", "LiDAR", "valued $1.5B+"],
     website: "https://www.cyclomedia.com",
+    funding: { lastRound: "ADIA/Fidelity-backed", valuation: "~$1.5B+" },
   },
   {
     id: "hivemapper",
@@ -1408,6 +1486,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["decentralized", "crowdsourced", "blockchain", "dashcam mapping", "100M+ km"],
     website: "https://hivemapper.com",
+    funding: { totalRaised: "~$38M" },
   },
   {
     id: "what3words",
@@ -1422,6 +1501,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["addressing", "location", "logistics", "navigation"],
     website: "https://what3words.com",
+    funding: { totalRaised: "~$90M" },
   },
   {
     id: "overture-maps",
@@ -1479,6 +1559,7 @@ export const companies: Company[] = [
     tags: ["GIS", "China", "smart city", "31.6% market share"],
     website: "https://www.supermap.com",
     financial: { ticker: "300036.SZ", exchange: "SZSE" },
+    funding: { totalRaised: "Private (majority Supermap Group)" },
   },
   {
     id: "precisely",
@@ -1493,6 +1574,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["data integrity", "geocoding", "address validation", "valued $7B+"],
     website: "https://www.precisely.com",
+    funding: { lastRound: "PE-backed (Clearlake/TA Associates)", valuation: "~$3.5B" },
   },
   {
     id: "felt",
@@ -1507,6 +1589,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["collaborative mapping", "no-code", "web GIS", "teams"],
     website: "https://felt.com",
+    funding: { totalRaised: "~$30M", lastRound: "Series B" },
   },
   {
     id: "pointr",
@@ -1521,6 +1604,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["indoor positioning", "wayfinding", "BLE", "venues"],
     website: "https://www.pointr.tech",
+    funding: { totalRaised: "~$20M" },
   },
   {
     id: "mobileye",
@@ -1536,6 +1620,7 @@ export const companies: Company[] = [
     tags: ["HD mapping", "ADAS", "autonomous driving", "crowdsourced mapping"],
     website: "https://www.mobileye.com",
     financial: { ticker: "MBLY", exchange: "NASDAQ" },
+    marketCap: "~$12B",
   },
   // ─────────────────────────── MARINE SURFACE ───────────────────────────
   {
@@ -1552,6 +1637,7 @@ export const companies: Company[] = [
     tags: ["marine survey", "geotechnical", "offshore", "geodata", "EUR1.8B revenue"],
     website: "https://www.fugro.com",
     financial: { ticker: "FUR.AS", exchange: "Euronext" },
+    marketCap: "~€5B (~$5.5B)",
   },
   {
     id: "kongsberg",
@@ -1567,6 +1653,7 @@ export const companies: Company[] = [
     tags: ["multibeam", "hydrographic", "sonar", "marine electronics", "HUGIN AUV"],
     website: "https://www.kongsberg.com",
     financial: { ticker: "KOG.OL", exchange: "Oslo" },
+    marketCap: "~NOK 130B (~$12B)",
   },
   {
     id: "saildrone",
@@ -1581,6 +1668,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["USV", "ocean data", "autonomous", "maritime", "Lockheed-backed"],
     website: "https://www.saildrone.com",
+    funding: { totalRaised: "$190M+", lastRound: "Series C" },
   },
   {
     id: "sofar-ocean",
@@ -1595,6 +1683,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["ocean sensing", "Spotter buoy", "waves", "open source", "Bristlemouth"],
     website: "https://www.sofarocean.com",
+    funding: { totalRaised: "$80M+", lastRound: "Series B" },
   },
   {
     id: "marine-traffic",
@@ -1609,6 +1698,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["AIS", "vessel tracking", "shipping", "maritime intelligence", "550K+ vessels"],
     website: "https://www.marinetraffic.com",
+    funding: { totalRaised: "~$15M" },
   },
   {
     id: "windward",
@@ -1624,6 +1714,7 @@ export const companies: Company[] = [
     tags: ["maritime AI", "compliance", "risk", "trade intelligence"],
     website: "https://www.wnwd.com",
     financial: { ticker: "WNWD.L", exchange: "LSE" },
+    marketCap: "~$150M",
   },
   {
     id: "kpler",
@@ -1638,6 +1729,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["commodity tracking", "energy", "cargo", "acquired Spire Maritime $241M"],
     website: "https://www.kpler.com",
+    funding: { totalRaised: "$300M+", lastRound: "Growth round" },
   },
   {
     id: "vortexa",
@@ -1652,6 +1744,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["energy flows", "cargo analytics", "oil tracking", "$1.8T+ tracked"],
     website: "https://www.vortexa.com",
+    funding: { totalRaised: "~$40M" },
   },
   {
     id: "norbit",
@@ -1667,6 +1760,7 @@ export const companies: Company[] = [
     tags: ["multibeam sonar", "hydrographic", "inspection"],
     website: "https://www.norbit.com",
     financial: { ticker: "NORBT.OL", exchange: "Oslo" },
+    marketCap: "~NOK 3B (~$280M)",
   },
   {
     id: "oceanalpha",
@@ -1696,6 +1790,7 @@ export const companies: Company[] = [
     tags: ["water quality", "monitoring", "buoys", "environmental"],
     website: "https://www.xylem.com",
     financial: { ticker: "XYL", exchange: "NYSE" },
+    marketCap: "~$28B",
   },
   {
     id: "global-fishing-watch",
@@ -1753,6 +1848,7 @@ export const companies: Company[] = [
     tags: ["AIS transponder", "coast guard", "maritime security"],
     website: "https://www.srtmarine.com",
     financial: { ticker: "SRT.L", exchange: "AIM" },
+    marketCap: "~£25M (~$32M)",
   },
   {
     id: "exactearth",
@@ -1782,6 +1878,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["AUV", "seabed mapping", "robotics", "Armada fleet", "XOCEAN"],
     website: "https://www.oceaninfinity.com",
+    funding: { totalRaised: "~$100M+", valuation: "~$1B+ (est.)" },
   },
   {
     id: "teledyne-marine",
@@ -1797,6 +1894,7 @@ export const companies: Company[] = [
     tags: ["ADCP", "side-scan sonar", "subsea imaging", "24 brands"],
     website: "https://www.teledynemarine.com",
     financial: { ticker: "TDY", exchange: "NYSE" },
+    marketCap: "~$21B",
   },
   {
     id: "oceaneering",
@@ -1812,6 +1910,7 @@ export const companies: Company[] = [
     tags: ["ROV", "deepwater", "subsea engineering", "$2.5B revenue"],
     website: "https://www.oceaneering.com",
     financial: { ticker: "OII", exchange: "NYSE" },
+    marketCap: "~$3.5B",
   },
   {
     id: "subsea7",
@@ -1827,6 +1926,7 @@ export const companies: Company[] = [
     tags: ["offshore energy", "subsea engineering", "$5B+ revenue"],
     website: "https://www.subsea7.com",
     financial: { ticker: "SUBC.OL", exchange: "Oslo" },
+    marketCap: "~NOK 55B (~$5B)",
   },
   {
     id: "saab-seaeye",
@@ -1857,6 +1957,7 @@ export const companies: Company[] = [
     tags: ["inertial navigation", "acoustic positioning", "DriX USV", "AUV"],
     website: "https://www.exail.com",
     financial: { ticker: "EXA.PA", exchange: "Euronext" },
+    funding: { valuation: "~€600M (est.)" },
   },
   {
     id: "sonardyne",
@@ -1886,6 +1987,7 @@ export const companies: Company[] = [
     tags: ["synthetic aperture sonar", "defense", "mine detection", "C$100M revenue"],
     website: "https://www.krakenrobotics.com",
     financial: { ticker: "PNG.V", exchange: "TSX-V" },
+    marketCap: "~$500M CAD",
   },
   {
     id: "voyis",
@@ -1914,6 +2016,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["AUV", "digital twin", "seafloor mapping", "offshore wind"],
     website: "https://www.bedrockoce.com",
+    funding: { totalRaised: "~$30M", lastRound: "Series A" },
   },
   {
     id: "advanced-navigation",
@@ -1928,6 +2031,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["inertial navigation", "AI positioning", "subsea robotics", "AU$100M+"],
     website: "https://www.advancednavigation.com",
+    funding: { totalRaised: "~$120M+", lastRound: "Series C" },
   },
   {
     id: "hii-hydroid",
@@ -1985,6 +2089,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["snake robot", "resident subsea", "inspection", "Equinor-backed"],
     website: "https://eelume.com",
+    funding: { totalRaised: "~$15M" },
   },
   {
     id: "nortek",
@@ -2014,6 +2119,7 @@ export const companies: Company[] = [
     tags: ["deep-sea mining", "polymetallic nodules", "battery metals", "ISA"],
     website: "https://metals.co",
     financial: { ticker: "TMC", exchange: "NASDAQ" },
+    marketCap: "~$600M",
   },
   {
     id: "greensea",
@@ -2028,6 +2134,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["robot OS", "autonomy", "ROV", "multi-vehicle"],
     website: "https://www.greenseaiq.com",
+    funding: { totalRaised: "~$10M" },
   },
   {
     id: "terradepth",
@@ -2042,6 +2149,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["AUV", "cloud analytics", "subsea survey", "autonomous"],
     website: "https://www.terradepth.com",
+    funding: { totalRaised: "~$20M", lastRound: "Series A" },
   },
   {
     id: "furuno",
@@ -2057,6 +2165,7 @@ export const companies: Company[] = [
     tags: ["marine electronics", "echosounder", "sonar", "Japan"],
     website: "https://www.furuno.com",
     financial: { ticker: "6814.T", exchange: "TSE" },
+    marketCap: "~¥130B (~$900M)",
   },
   {
     id: "planblue",
@@ -2071,6 +2180,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["hyperspectral underwater", "habitat mapping", "environmental", "Germany"],
     website: "https://www.planblue.com",
+    funding: { totalRaised: "~$5M", lastRound: "Seed" },
   },
   {
     id: "deme-gsr",
@@ -2102,6 +2212,7 @@ export const companies: Company[] = [
     tags: ["cloud", "satellite analysis", "planetary-scale", "open data"],
     website: "https://earthengine.google.com",
     financial: { ticker: "GOOGL", exchange: "NASDAQ" },
+    marketCap: "~$2T (Alphabet)",
   },
   {
     id: "microsoft-planetary",
@@ -2117,6 +2228,7 @@ export const companies: Company[] = [
     tags: ["cloud", "environmental", "sustainability", "AI", "Azure Orbital"],
     website: "https://planetarycomputer.microsoft.com",
     financial: { ticker: "MSFT", exchange: "NASDAQ" },
+    marketCap: "~$3T (Microsoft)",
   },
   {
     id: "aws-ground",
@@ -2132,6 +2244,7 @@ export const companies: Company[] = [
     tags: ["cloud", "ground station", "satellite downlink", "geospatial ML"],
     website: "https://aws.amazon.com/ground-station",
     financial: { ticker: "AMZN", exchange: "NASDAQ" },
+    marketCap: "~$2T (Amazon)",
   },
   {
     id: "snowflake",
@@ -2147,6 +2260,7 @@ export const companies: Company[] = [
     tags: ["cloud data platform", "geospatial SQL", "data sharing"],
     website: "https://www.snowflake.com",
     financial: { ticker: "SNOW", exchange: "NYSE" },
+    marketCap: "~$55B",
   },
   {
     id: "palantir",
@@ -2162,6 +2276,7 @@ export const companies: Company[] = [
     tags: ["defense", "GEOINT", "data fusion", "AI platform", "$100B+ market cap"],
     website: "https://www.palantir.com",
     financial: { ticker: "PLTR", exchange: "NASDAQ" },
+    marketCap: "~$120B",
   },
   {
     id: "bentley-systems",
@@ -2177,6 +2292,7 @@ export const companies: Company[] = [
     tags: ["digital twin", "infrastructure", "BIM", "acquired Cesium"],
     website: "https://www.bentley.com",
     financial: { ticker: "BSY", exchange: "NASDAQ" },
+    marketCap: "~$15B",
   },
   {
     id: "safe-software",
@@ -2191,6 +2307,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["data integration", "ETL", "format conversion", "450+ formats"],
     website: "https://www.safe.com",
+    funding: { valuation: "Private (bootstrapped)" },
   },
   {
     id: "1spatial",
@@ -2206,6 +2323,7 @@ export const companies: Company[] = [
     tags: ["data validation", "quality management", "UK"],
     website: "https://1702spatial.com",
     financial: { ticker: "SPA.L", exchange: "LSE" },
+    marketCap: "~£50M (~$64M)",
   },
   {
     id: "kayrros",
@@ -2220,6 +2338,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["methane monitoring", "energy analytics", "climate", "alternative data"],
     website: "https://www.kayrros.com",
+    funding: { totalRaised: "~$80M", lastRound: "Series B" },
   },
   {
     id: "regrow",
@@ -2234,6 +2353,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["regenerative agriculture", "carbon MRV", "satellite AI", "soil carbon"],
     website: "https://www.regrow.ag",
+    funding: { totalRaised: "~$58M", lastRound: "Series B" },
   },
   {
     id: "ecopia-ai",
@@ -2248,6 +2368,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["HD vector maps", "building footprints", "AI extraction", "continental scale"],
     website: "https://www.ecopia.ai",
+    funding: { totalRaised: "~$32M", lastRound: "Series B" },
   },
   {
     id: "aidash",
@@ -2262,6 +2383,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["utility vegetation", "infrastructure risk", "satellite AI", "power grids"],
     website: "https://www.aidash.com",
+    funding: { totalRaised: "$80M+", lastRound: "Series C" },
   },
   {
     id: "orbital-insight",
@@ -2276,6 +2398,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["AI", "computer vision", "supply chain", "energy", "acquired"],
     website: "https://www.orbitalinsight.com",
+    funding: { totalRaised: "$130M+", lastRound: "Series D" },
   },
   {
     id: "liveeo",
@@ -2290,6 +2413,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["infrastructure monitoring", "railways", "pipelines", "vegetation"],
     website: "https://live-eo.com",
+    funding: { totalRaised: "~$25M", lastRound: "Series A" },
   },
   {
     id: "overstory",
@@ -2304,6 +2428,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["vegetation management", "utilities", "climate risk", "$67.9M raised"],
     website: "https://www.overstory.com",
+    funding: { totalRaised: "~$30M", lastRound: "Series B" },
   },
   {
     id: "descartes-underwriting",
@@ -2318,6 +2443,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["parametric insurance", "climate risk", "catastrophe", "Series B $120M"],
     website: "https://www.descartesunderwriting.com",
+    funding: { totalRaised: "~$120M", lastRound: "Series B" },
   },
   {
     id: "foursquare",
@@ -2332,6 +2458,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["location intelligence", "POI data", "120M+ POIs", "retail"],
     website: "https://foursquare.com",
+    funding: { totalRaised: "$390M+", lastRound: "Growth round" },
   },
   {
     id: "placer-ai",
@@ -2346,6 +2473,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["foot traffic", "retail analytics", "location intelligence", "unicorn"],
     website: "https://www.placer.ai",
+    funding: { totalRaised: "~$117M+", lastRound: "Series D", valuation: "~$1B+" },
   },
   {
     id: "up42",
@@ -2360,6 +2488,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["marketplace", "API", "developer platform", "Airbus subsidiary"],
     website: "https://up42.com",
+    funding: { totalRaised: "~$20M+" },
   },
   {
     id: "skywatch",
@@ -2374,6 +2503,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["data marketplace", "700+ sensors", "API", "EarthCache"],
     website: "https://www.skywatch.com",
+    funding: { totalRaised: "~$15M" },
   },
   {
     id: "skyfi",
@@ -2388,6 +2518,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["virtual constellation", "50+ providers", "marketplace"],
     website: "https://www.skyfi.com",
+    funding: { totalRaised: "~$20M", lastRound: "Series A" },
   },
   {
     id: "satellite-vu",
@@ -2402,6 +2533,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["thermal infrared", "building heat", "ESG", "UK"],
     website: "https://www.satellitevu.com",
+    funding: { totalRaised: "~$30M", lastRound: "Series A" },
   },
   {
     id: "carto",
@@ -2416,6 +2548,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["spatial analytics", "cloud native", "data warehouse", "BI"],
     website: "https://carto.com",
+    funding: { totalRaised: "~$100M", lastRound: "Series C" },
   },
   {
     id: "wherobots",
@@ -2430,6 +2563,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["spatial database", "Apache Sedona", "cloud-native", "20x faster"],
     website: "https://wherobots.com",
+    funding: { totalRaised: "~$27M", lastRound: "Series A" },
   },
   {
     id: "tiledb",
@@ -2444,6 +2578,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["array database", "multi-dimensional", "scientific data", "$53.1M"],
     website: "https://tiledb.com",
+    funding: { totalRaised: "~$50M", lastRound: "Series B" },
   },
   {
     id: "cesium",
@@ -2458,6 +2593,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["3D visualization", "3D Tiles", "digital twin", "OGC standard", "acquired by Bentley"],
     website: "https://cesium.com",
+    funding: { lastRound: "Acquired by Bentley Systems (2024)", acquiredPrice: "~$130M (est.)" },
   },
   {
     id: "blackshark-ai",
@@ -2472,6 +2608,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["3D Earth model", "digital twin", "building footprints", "Flight Simulator"],
     website: "https://blackshark.ai",
+    funding: { totalRaised: "~$46M", lastRound: "Series A" },
   },
   {
     id: "51world",
@@ -2486,6 +2623,7 @@ export const companies: Company[] = [
     size: "Enterprise",
     tags: ["digital twin", "smart city", "China", "200+ cities", "HK IPO $2B"],
     website: "https://www.51world.com",
+    funding: { totalRaised: "~$70M+" },
   },
   {
     id: "dassault-systemes",
@@ -2501,6 +2639,7 @@ export const companies: Company[] = [
     tags: ["3DEXPERIENCity", "digital twin", "urban planning", "EUR6B revenue"],
     website: "https://www.3ds.com",
     financial: { ticker: "DSY.PA", exchange: "Euronext" },
+    marketCap: "~€55B (~$60B)",
   },
   {
     id: "ubotica",
@@ -2544,6 +2683,7 @@ export const companies: Company[] = [
     tags: ["space logistics", "edge computing", "ION Carrier", "Italy"],
     website: "https://www.dorbit.space",
     financial: { ticker: "OBIT", exchange: "NASDAQ" },
+    marketCap: "~$100M",
   },
   {
     id: "descartes-labs",
@@ -2552,12 +2692,13 @@ export const companies: Company[] = [
     capabilities: ["Analytics & AI", "Platform / Infrastructure", "Data Processing"],
     sensorTypes: ["Optical / RGB", "SAR / Radar", "Multispectral"],
     description:
-      "Geospatial intelligence platform using ML for predictive analytics. Acquired by Privateer in 2024.",
+      "Geospatial intelligence platform using ML for predictive analytics. Acquired by Earth Daily Analytics, integrating into their EarthDaily Agro and analytics stack.",
     founded: 2014,
     hq: "Santa Fe, NM",
     size: "Growth",
-    tags: ["ML", "predictive analytics", "commodities", "acquired by Privateer"],
+    tags: ["ML", "predictive analytics", "commodities", "acquired by Earth Daily Analytics"],
     website: "https://www.descarteslabs.com",
+    funding: { lastRound: "Acquired by Earth Daily Analytics", acquiredPrice: "Undisclosed" },
   },
   {
     id: "picterra",
@@ -2572,6 +2713,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["no-code", "object detection", "ML", "geospatial AI"],
     website: "https://picterra.ch",
+    funding: { totalRaised: "~$10.4M" },
   },
   {
     id: "development-seed",
@@ -2586,6 +2728,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["open source", "STAC", "satellite pipelines", "climate"],
     website: "https://developmentseed.org",
+    funding: { totalRaised: "Bootstrapped" },
   },
   {
     id: "element84",
@@ -2614,6 +2757,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["India", "agriculture lending", "climate risk", "ADB-backed"],
     website: "https://www.satsure.co",
+    funding: { totalRaised: "~$8M", lastRound: "Pre-Series A" },
   },
   {
     id: "piesat",
@@ -2629,6 +2773,7 @@ export const companies: Company[] = [
     tags: ["China", "satellite analytics", "GIS software", "STAR Market $2B"],
     website: "https://www.piesat.cn",
     financial: { ticker: "688066.SS", exchange: "SSE" },
+    marketCap: "~¥15B (~$2B)",
   },
   {
     id: "spacknow",
@@ -2643,6 +2788,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["economic indicators", "AI analytics", "industrial monitoring"],
     website: "https://www.spaceknow.com",
+    funding: { totalRaised: "~$5M" },
   },
   {
     id: "ursa-space",
@@ -2657,6 +2803,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["SAR analytics", "oil storage", "maritime", "infrastructure"],
     website: "https://www.ursaspace.com",
+    funding: { totalRaised: "~$18M" },
   },
   {
     id: "seabed-2030",
@@ -2686,6 +2833,7 @@ export const companies: Company[] = [
     tags: ["defense", "GEOINT", "communications", "$45B market cap"],
     website: "https://www.l3harris.com",
     financial: { ticker: "LHX", exchange: "NYSE" },
+    marketCap: "~$45B",
   },
   {
     id: "leidos",
@@ -2701,6 +2849,7 @@ export const companies: Company[] = [
     tags: ["defense IT", "geospatial services", "$20B market cap"],
     website: "https://www.leidos.com",
     financial: { ticker: "LDOS", exchange: "NYSE" },
+    marketCap: "~$20B",
   },
   {
     id: "zesty-ai",
@@ -2715,6 +2864,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["insurance AI", "wildfire", "flood", "property risk"],
     website: "https://www.zesty.ai",
+    funding: { totalRaised: "$53M+", lastRound: "Series B" },
   },
   {
     id: "verisk",
@@ -2730,6 +2880,7 @@ export const companies: Company[] = [
     tags: ["insurance", "risk assessment", "data analytics", "$35B market cap"],
     website: "https://www.verisk.com",
     financial: { ticker: "VRSK", exchange: "NASDAQ" },
+    marketCap: "~$40B",
   },
   {
     id: "solinftec",
@@ -2744,6 +2895,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["agriculture", "Brazil", "33M+ acres", "IoT", "Latin America leader"],
     website: "https://www.solinftec.com",
+    funding: { totalRaised: "~$90M" },
   },
   {
     id: "taranis",
@@ -2758,6 +2910,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["crop intelligence", "leaf-level", "precision farming", "Israel"],
     website: "https://www.taranis.com",
+    funding: { totalRaised: "~$50M", lastRound: "Series C" },
   },
   {
     id: "ksat",
@@ -2786,6 +2939,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["India", "SAR+optical", "multi-modal", "startup"],
     website: "https://www.galaxeye.space",
+    funding: { totalRaised: "~$7M", lastRound: "Seed" },
   },
   {
     id: "apollo-agriculture",
@@ -2800,6 +2954,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["Africa", "smallholder", "credit risk", "Kenya", "satellite lending"],
     website: "https://www.apolloagriculture.com",
+    funding: { totalRaised: "~$50M" },
   },
   {
     id: "afrigis",
