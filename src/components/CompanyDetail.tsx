@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react";
-import { Company, DOMAIN_COLORS } from "@/data/types";
+import { useEffect, useMemo } from "react";
+import { Company, DOMAIN_COLORS, SENSOR_TYPE_COLORS, SensorType } from "@/data/types";
+import { useFinancialData, formatPrice, formatVolume } from "@/hooks/useFinancialData";
 
 interface CompanyDetailProps {
   company: Company;
@@ -10,6 +11,13 @@ interface CompanyDetailProps {
 
 export default function CompanyDetail({ company, onClose }: CompanyDetailProps) {
   const color = DOMAIN_COLORS[company.domain];
+
+  const tickers = useMemo(() => {
+    return company.financial ? [company.financial.ticker] : [];
+  }, [company.financial]);
+
+  const { data: finData, loading: finLoading } = useFinancialData(tickers);
+  const liveData = company.financial ? finData[company.financial.ticker] : null;
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -25,7 +33,7 @@ export default function CompanyDetail({ company, onClose }: CompanyDetailProps) 
         className="absolute inset-0 bg-black/70 backdrop-blur-sm modal-backdrop"
         onClick={onClose}
       />
-      <div className="relative w-full max-w-lg bg-[#0d0d20] border border-white/10 rounded-2xl shadow-2xl overflow-hidden modal-content">
+      <div className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#0d0d20] border border-white/10 rounded-2xl shadow-2xl modal-content">
         {/* Header gradient bar */}
         <div className="h-1 w-full" style={{ backgroundColor: color }} />
 
@@ -91,6 +99,102 @@ export default function CompanyDetail({ company, onClose }: CompanyDetailProps) 
           <p className="text-sm text-white/65 leading-relaxed mb-6">
             {company.description}
           </p>
+
+          {/* Live Financial Data */}
+          {company.financial && (
+            <div className="mb-5 bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+              <h4 className="text-[10px] font-semibold uppercase tracking-wider text-white/25 mb-3 flex items-center gap-2">
+                <svg className="w-3.5 h-3.5 text-green-400/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                </svg>
+                Live Market Data
+                <span className="text-[9px] font-mono text-green-400/50">
+                  {company.financial.ticker} ({company.financial.exchange})
+                </span>
+              </h4>
+              {finLoading && !liveData ? (
+                <div className="flex items-center gap-2 text-white/30 text-xs">
+                  <div className="w-3 h-3 border border-white/20 border-t-white/50 rounded-full animate-spin" />
+                  Loading market data...
+                </div>
+              ) : liveData ? (
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <p className="text-[10px] text-white/30">Price</p>
+                    <p className="text-lg font-bold text-white/90">
+                      {formatPrice(liveData.price, liveData.currency)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-white/30">Change</p>
+                    <p className={`text-lg font-bold ${liveData.change >= 0 ? "text-green-400" : "text-red-400"}`}>
+                      {liveData.change >= 0 ? "+" : ""}{liveData.change.toFixed(2)} ({liveData.changePercent.toFixed(2)}%)
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-white/30">Day Range</p>
+                    <p className="text-xs text-white/60">
+                      {formatPrice(liveData.dayLow, liveData.currency)} - {formatPrice(liveData.dayHigh, liveData.currency)}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-white/30">Volume</p>
+                    <p className="text-xs text-white/60">{formatVolume(liveData.volume)}</p>
+                  </div>
+                  <div className="col-span-2">
+                    <p className="text-[10px] text-white/30">52-Week Range</p>
+                    <div className="mt-1 relative h-2 bg-white/[0.06] rounded-full">
+                      {liveData.fiftyTwoWeekHigh > liveData.fiftyTwoWeekLow && (
+                        <div
+                          className="absolute top-0 h-full w-1 rounded-full bg-white/60"
+                          style={{
+                            left: `${Math.min(100, Math.max(0, ((liveData.price - liveData.fiftyTwoWeekLow) / (liveData.fiftyTwoWeekHigh - liveData.fiftyTwoWeekLow)) * 100))}%`,
+                          }}
+                        />
+                      )}
+                    </div>
+                    <div className="flex justify-between mt-0.5 text-[9px] text-white/25">
+                      <span>{formatPrice(liveData.fiftyTwoWeekLow, liveData.currency)}</span>
+                      <span>{formatPrice(liveData.fiftyTwoWeekHigh, liveData.currency)}</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <p className="text-xs text-white/25">Market data unavailable</p>
+              )}
+            </div>
+          )}
+
+          {/* Sensor Types */}
+          {company.sensorTypes.length > 0 && (
+            <div className="mb-5">
+              <h4 className="text-[10px] font-semibold uppercase tracking-wider text-white/25 mb-2 flex items-center gap-2">
+                <svg className="w-3.5 h-3.5 text-cyan-400/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.348 14.651a3.75 3.75 0 010-5.303m5.304 0a3.75 3.75 0 010 5.303m-7.425 2.122a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M5.106 18.894c-3.808-3.808-3.808-9.98 0-13.788m13.788 0c3.808 3.808 3.808 9.98 0 13.788" />
+                </svg>
+                Sensor Data Types
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {company.sensorTypes.map((sensor) => (
+                  <span
+                    key={sensor}
+                    className="text-xs px-2.5 py-1 rounded-lg border flex items-center gap-1.5"
+                    style={{
+                      borderColor: `${SENSOR_TYPE_COLORS[sensor as SensorType]}30`,
+                      backgroundColor: `${SENSOR_TYPE_COLORS[sensor as SensorType]}10`,
+                      color: SENSOR_TYPE_COLORS[sensor as SensorType],
+                    }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: SENSOR_TYPE_COLORS[sensor as SensorType] }}
+                    />
+                    {sensor}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Capabilities */}
           <div className="mb-5">

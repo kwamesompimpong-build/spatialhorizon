@@ -5,9 +5,12 @@ import {
   Company,
   DomainLayer,
   Capability,
+  SensorType,
   DOMAIN_LAYERS,
   DOMAIN_COLORS,
   CAPABILITIES,
+  SENSOR_TYPES,
+  SENSOR_TYPE_COLORS,
 } from "@/data/types";
 
 interface StatsBarProps {
@@ -34,6 +37,16 @@ export default function StatsBar({ companies }: StatsBarProps) {
       size: s,
       count: companies.filter((c) => c.size === s).length,
     }));
+  }, [companies]);
+
+  // Sensor type distribution
+  const sensorCounts = useMemo(() => {
+    return SENSOR_TYPES.map((sensor) => ({
+      sensor,
+      count: companies.filter((c) => c.sensorTypes.includes(sensor)).length,
+    }))
+      .filter((s) => s.count > 0)
+      .sort((a, b) => b.count - a.count);
   }, [companies]);
 
   // Geographic distribution
@@ -97,15 +110,14 @@ export default function StatsBar({ companies }: StatsBarProps) {
   return (
     <div className="space-y-6 animate-fade-in-up">
       {/* Summary cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
         <SummaryCard label="Total Companies" value={companies.length} />
         <SummaryCard label="Domains" value={DOMAIN_LAYERS.length} />
         <SummaryCard label="Capabilities" value={CAPABILITIES.length} />
+        <SummaryCard label="Sensor Types" value={SENSOR_TYPES.length} />
         <SummaryCard
-          label="Avg. Capabilities"
-          value={companies.length > 0
-            ? (companies.reduce((sum, c) => sum + c.capabilities.length, 0) / companies.length).toFixed(1)
-            : "0"}
+          label="Publicly Traded"
+          value={companies.filter((c) => c.financial).length}
         />
       </div>
 
@@ -216,6 +228,42 @@ export default function StatsBar({ companies }: StatsBarProps) {
               );
             })}
           </div>
+        </div>
+      </div>
+
+      {/* Sensor type distribution */}
+      <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-5">
+        <h3 className="text-[10px] uppercase tracking-wider text-white/25 font-semibold mb-4 flex items-center gap-2">
+          <svg className="w-3.5 h-3.5 text-cyan-400/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9.348 14.651a3.75 3.75 0 010-5.303m5.304 0a3.75 3.75 0 010 5.303m-7.425 2.122a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M5.106 18.894c-3.808-3.808-3.808-9.98 0-13.788m13.788 0c3.808 3.808 3.808 9.98 0 13.788" />
+          </svg>
+          Sensor Data Type Distribution
+        </h3>
+        <div className="space-y-2">
+          {sensorCounts.map(({ sensor, count }) => {
+            const pct = companies.length > 0 ? Math.round((count / companies.length) * 100) : 0;
+            const color = SENSOR_TYPE_COLORS[sensor];
+            return (
+              <div key={sensor} className="flex items-center gap-3">
+                <span className="text-[10px] text-white/50 w-36 shrink-0 flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color }} />
+                  {sensor}
+                </span>
+                <div className="flex-1 h-5 bg-white/[0.03] rounded-lg overflow-hidden">
+                  <div
+                    className="h-full rounded-lg transition-all duration-700 flex items-center justify-end pr-2"
+                    style={{
+                      width: `${Math.max((count / (sensorCounts[0]?.count || 1)) * 100, 6)}%`,
+                      backgroundColor: `${color}50`,
+                    }}
+                  >
+                    <span className="text-[9px] font-semibold text-white/80">{count}</span>
+                  </div>
+                </div>
+                <span className="text-[9px] text-white/25 w-8 text-right">{pct}%</span>
+              </div>
+            );
+          })}
         </div>
       </div>
 

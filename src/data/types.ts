@@ -17,17 +17,59 @@ export type Capability =
 
 export type CompanySize = "Startup" | "Growth" | "Enterprise";
 
+export type SensorType =
+  | "Optical / RGB"
+  | "SAR / Radar"
+  | "Hyperspectral"
+  | "Multispectral"
+  | "Thermal / IR"
+  | "LiDAR"
+  | "RF / Signals"
+  | "AIS / Vessel Tracking"
+  | "Weather / Atmospheric"
+  | "Sonar / Acoustic"
+  | "GNSS / Positioning"
+  | "Video / FMV"
+  | "GPR / Subsurface"
+  | "Bathymetric"
+  | "INS / Inertial"
+  | "Water Quality"
+  | "Current / Wave / Ocean"
+  | "3D / Point Cloud"
+  | "Emissions / GHG";
+
+export interface FinancialInfo {
+  ticker: string;
+  exchange: string;
+}
+
 export interface Company {
   id: string;
   name: string;
   domain: DomainLayer;
   capabilities: Capability[];
+  sensorTypes: SensorType[];
   description: string;
   founded: number | null;
   hq: string;
   size: CompanySize;
   tags: string[];
   website: string;
+  financial?: FinancialInfo;
+}
+
+export interface FinancialData {
+  ticker: string;
+  price: number;
+  change: number;
+  changePercent: number;
+  marketCap: number;
+  volume: number;
+  dayHigh: number;
+  dayLow: number;
+  fiftyTwoWeekHigh: number;
+  fiftyTwoWeekLow: number;
+  currency: string;
 }
 
 export const DOMAIN_LAYERS: DomainLayer[] = [
@@ -48,6 +90,50 @@ export const CAPABILITIES: Capability[] = [
   "Mapping & Visualization",
   "Consulting & Services",
 ];
+
+export const SENSOR_TYPES: SensorType[] = [
+  "Optical / RGB",
+  "SAR / Radar",
+  "Hyperspectral",
+  "Multispectral",
+  "Thermal / IR",
+  "LiDAR",
+  "RF / Signals",
+  "AIS / Vessel Tracking",
+  "Weather / Atmospheric",
+  "Sonar / Acoustic",
+  "GNSS / Positioning",
+  "Video / FMV",
+  "GPR / Subsurface",
+  "Bathymetric",
+  "INS / Inertial",
+  "Water Quality",
+  "Current / Wave / Ocean",
+  "3D / Point Cloud",
+  "Emissions / GHG",
+];
+
+export const SENSOR_TYPE_COLORS: Record<SensorType, string> = {
+  "Optical / RGB": "#f59e0b",
+  "SAR / Radar": "#ef4444",
+  "Hyperspectral": "#8b5cf6",
+  "Multispectral": "#a855f7",
+  "Thermal / IR": "#f97316",
+  "LiDAR": "#10b981",
+  "RF / Signals": "#ec4899",
+  "AIS / Vessel Tracking": "#06b6d4",
+  "Weather / Atmospheric": "#60a5fa",
+  "Sonar / Acoustic": "#3b82f6",
+  "GNSS / Positioning": "#14b8a6",
+  "Video / FMV": "#f43f5e",
+  "GPR / Subsurface": "#78716c",
+  "Bathymetric": "#2563eb",
+  "INS / Inertial": "#64748b",
+  "Water Quality": "#22d3ee",
+  "Current / Wave / Ocean": "#0ea5e9",
+  "3D / Point Cloud": "#84cc16",
+  "Emissions / GHG": "#facc15",
+};
 
 export const DOMAIN_COLORS: Record<DomainLayer, string> = {
   Space: "#6366f1",
