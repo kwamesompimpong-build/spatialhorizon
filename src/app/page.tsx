@@ -7,6 +7,7 @@ import {
   DomainLayer,
   Capability,
   CompanySize,
+  SensorType,
   DOMAIN_LAYERS,
   DOMAIN_COLORS,
 } from "@/data/types";
@@ -22,6 +23,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [activeDomains, setActiveDomains] = useState<Set<DomainLayer>>(new Set());
   const [activeCapabilities, setActiveCapabilities] = useState<Set<Capability>>(new Set());
+  const [activeSensors, setActiveSensors] = useState<Set<SensorType>>(new Set());
   const [activeSize, setActiveSize] = useState<CompanySize | null>(null);
   const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("map");
@@ -50,6 +52,18 @@ export default function Home() {
     });
   }, []);
 
+  const toggleSensor = useCallback((sensor: SensorType) => {
+    setActiveSensors((prev) => {
+      const next = new Set(prev);
+      if (next.has(sensor)) {
+        next.delete(sensor);
+      } else {
+        next.add(sensor);
+      }
+      return next;
+    });
+  }, []);
+
   const filteredCompanies = useMemo(() => {
     return companies.filter((c) => {
       // Domain filter
@@ -58,6 +72,12 @@ export default function Home() {
       if (
         activeCapabilities.size > 0 &&
         !c.capabilities.some((cap) => activeCapabilities.has(cap))
+      )
+        return false;
+      // Sensor type filter
+      if (
+        activeSensors.size > 0 &&
+        !c.sensorTypes.some((s) => activeSensors.has(s))
       )
         return false;
       // Size filter
@@ -71,12 +91,14 @@ export default function Home() {
           c.tags.some((t) => t.toLowerCase().includes(q)) ||
           c.capabilities.some((cap) => cap.toLowerCase().includes(q)) ||
           c.domain.toLowerCase().includes(q) ||
-          c.hq.toLowerCase().includes(q)
+          c.hq.toLowerCase().includes(q) ||
+          c.sensorTypes.some((s) => s.toLowerCase().includes(q)) ||
+          (c.financial?.ticker.toLowerCase().includes(q) ?? false)
         );
       }
       return true;
     });
-  }, [search, activeDomains, activeCapabilities, activeSize]);
+  }, [search, activeDomains, activeCapabilities, activeSensors, activeSize]);
 
   const companiesByDomain = useMemo(() => {
     const map = new Map<DomainLayer, Company[]>();
@@ -93,11 +115,12 @@ export default function Home() {
     setSearch("");
     setActiveDomains(new Set());
     setActiveCapabilities(new Set());
+    setActiveSensors(new Set());
     setActiveSize(null);
   }, []);
 
   const hasFilters =
-    search || activeDomains.size > 0 || activeCapabilities.size > 0 || activeSize;
+    search || activeDomains.size > 0 || activeCapabilities.size > 0 || activeSensors.size > 0 || activeSize;
 
   return (
     <div className="min-h-screen">
@@ -168,6 +191,8 @@ export default function Home() {
               onToggleDomain={toggleDomain}
               activeCapabilities={activeCapabilities}
               onToggleCapability={toggleCapability}
+              activeSensors={activeSensors}
+              onToggleSensor={toggleSensor}
               activeSize={activeSize}
               onToggleSize={setActiveSize}
               totalCount={companies.length}
