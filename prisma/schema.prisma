@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Company {
+  id            String   @id
+  name          String
+  domain        String
+  capabilities  String   // JSON array
+  sensorTypes   String   // JSON array
+  description   String
+  founded       Int?
+  hq            String
+  size          String
+  tags          String   // JSON array
+  website       String
+  ticker        String?
+  exchange      String?
+  totalRaised   String?
+  lastRound     String?
+  valuation     String?
+  acquiredPrice String?
+  marketCap     String?
+  status        String   @default("approved")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  priceSnapshots PriceSnapshot[]
+
+  @@index([domain])
+  @@index([status])
+}
+
+model CompanySubmission {
+  id             String   @id @default(cuid())
+  companyId      String?
+  name           String
+  domain         String
+  capabilities   String   // JSON array
+  sensorTypes    String   // JSON array
+  description    String
+  founded        Int?
+  hq             String
+  size           String
+  tags           String   // JSON array
+  website        String
+  ticker         String?
+  exchange       String?
+  totalRaised    String?
+  lastRound      String?
+  valuation      String?
+  acquiredPrice  String?
+  marketCap      String?
+  submitterName  String
+  submitterEmail String
+  reason         String?
+  status         String   @default("pending")
+  reviewNote     String?
+  createdAt      DateTime @default(now())
+  reviewedAt     DateTime?
+
+  @@index([status])
+}
+
+model PriceSnapshot {
+  id            String   @id @default(cuid())
+  companyId     String
+  company       Company  @relation(fields: [companyId], references: [id])
+  ticker        String
+  price         Float
+  change        Float
+  changePercent Float
+  marketCap     Float
+  volume        Float
+  dayHigh       Float
+  dayLow        Float
+  currency      String   @default("USD")
+  snapshotDate  DateTime @default(now())
+
+  @@index([companyId, snapshotDate])
+  @@index([ticker])
+}

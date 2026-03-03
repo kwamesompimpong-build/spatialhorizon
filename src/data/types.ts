@@ -43,6 +43,13 @@ export interface FinancialInfo {
   exchange: string;
 }
 
+export interface FundingInfo {
+  totalRaised?: string;
+  lastRound?: string;
+  valuation?: string;
+  acquiredPrice?: string;
+}
+
 export interface Company {
   id: string;
   name: string;
@@ -56,6 +63,8 @@ export interface Company {
   tags: string[];
   website: string;
   financial?: FinancialInfo;
+  funding?: FundingInfo;
+  marketCap?: string;
 }
 
 export interface FinancialData {

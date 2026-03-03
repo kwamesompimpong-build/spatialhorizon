@@ -8,6 +8,8 @@ interface DomainLaneProps {
   companies: Company[];
   onCompanyClick: (company: Company) => void;
   icon: React.ReactNode;
+  collapsed: boolean;
+  onToggleCollapse: () => void;
 }
 
 const LANE_CLASSES: Record<DomainLayer, string> = {
@@ -32,6 +34,8 @@ export default function DomainLane({
   companies,
   onCompanyClick,
   icon,
+  collapsed,
+  onToggleCollapse,
 }: DomainLaneProps) {
   const color = DOMAIN_COLORS[domain];
   const laneClass = LANE_CLASSES[domain];
@@ -45,8 +49,11 @@ export default function DomainLane({
         style={{ backgroundColor: `${color}40` }}
       />
 
-      {/* Domain header */}
-      <div className="flex items-center justify-between mb-4">
+      {/* Domain header — clickable to collapse/expand */}
+      <button
+        onClick={onToggleCollapse}
+        className="flex items-center justify-between w-full text-left cursor-pointer group/header"
+      >
         <div className="flex items-center gap-3">
           <div
             className="flex items-center justify-center w-10 h-10 rounded-xl"
@@ -61,32 +68,53 @@ export default function DomainLane({
                 {companies.length} {companies.length === 1 ? "company" : "companies"}
               </span>
             </h2>
-            <p className="text-xs text-white/40 max-w-xl">
-              {DOMAIN_DESCRIPTIONS[domain]}
-            </p>
+            {!collapsed && (
+              <p className="text-xs text-white/40 max-w-xl">
+                {DOMAIN_DESCRIPTIONS[domain]}
+              </p>
+            )}
           </div>
         </div>
-        {depthLabel && (
-          <span className="hidden sm:block text-[10px] text-white/20 font-mono tracking-wider">
-            {depthLabel}
-          </span>
-        )}
-      </div>
+        <div className="flex items-center gap-3">
+          {depthLabel && (
+            <span className="hidden sm:block text-[10px] text-white/20 font-mono tracking-wider">
+              {depthLabel}
+            </span>
+          )}
+          {/* Chevron indicator */}
+          <svg
+            className={`w-5 h-5 text-white/25 group-hover/header:text-white/50 transition-all duration-200 ${
+              collapsed ? "-rotate-90" : "rotate-0"
+            }`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={1.5}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </div>
+      </button>
 
-      {/* Company grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 stagger-children">
-        {companies.map((company) => (
-          <CompanyCard
-            key={company.id}
-            company={company}
-            onClick={onCompanyClick}
-          />
-        ))}
-      </div>
+      {/* Collapsible content */}
+      {!collapsed && (
+        <div className="mt-4">
+          {/* Company grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 stagger-children">
+            {companies.map((company) => (
+              <CompanyCard
+                key={company.id}
+                company={company}
+                onClick={onCompanyClick}
+              />
+            ))}
+          </div>
 
-      {companies.length === 0 && (
-        <div className="text-center py-8 text-white/20 text-sm">
-          No companies match current filters
+          {companies.length === 0 && (
+            <div className="text-center py-8 text-white/20 text-sm">
+              No companies match current filters
+            </div>
+          )}
         </div>
       )}
     </section>

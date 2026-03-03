@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from "react";
 import { Company, DOMAIN_COLORS, SENSOR_TYPE_COLORS, SensorType } from "@/data/types";
 import { useFinancialData, formatPrice, formatVolume } from "@/hooks/useFinancialData";
+import PriceHistoryChart from "./PriceHistoryChart";
 
 interface CompanyDetailProps {
   company: Company;
@@ -100,6 +101,50 @@ export default function CompanyDetail({ company, onClose }: CompanyDetailProps) 
             {company.description}
           </p>
 
+          {/* Funding / Valuation / Market Cap */}
+          {(company.marketCap || company.funding) && (
+            <div className="mb-5 bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+              <h4 className="text-[10px] font-semibold uppercase tracking-wider text-white/25 mb-3 flex items-center gap-2">
+                <svg className="w-3.5 h-3.5 text-yellow-400/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {company.marketCap ? "Market Capitalization" : "Funding & Valuation"}
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                {company.marketCap && (
+                  <div className="col-span-2">
+                    <p className="text-[10px] text-white/30">Market Cap</p>
+                    <p className="text-lg font-bold text-yellow-400/90">{company.marketCap}</p>
+                  </div>
+                )}
+                {company.funding?.valuation && (
+                  <div>
+                    <p className="text-[10px] text-white/30">Valuation</p>
+                    <p className="text-base font-bold text-purple-400/90">{company.funding.valuation}</p>
+                  </div>
+                )}
+                {company.funding?.totalRaised && (
+                  <div>
+                    <p className="text-[10px] text-white/30">Total Raised</p>
+                    <p className="text-base font-bold text-cyan-400/90">{company.funding.totalRaised}</p>
+                  </div>
+                )}
+                {company.funding?.lastRound && (
+                  <div>
+                    <p className="text-[10px] text-white/30">Last Round</p>
+                    <p className="text-sm text-white/60">{company.funding.lastRound}</p>
+                  </div>
+                )}
+                {company.funding?.acquiredPrice && (
+                  <div>
+                    <p className="text-[10px] text-white/30">Acquisition Price</p>
+                    <p className="text-base font-bold text-orange-400/90">{company.funding.acquiredPrice}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* Live Financial Data */}
           {company.financial && (
             <div className="mb-5 bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
@@ -162,6 +207,9 @@ export default function CompanyDetail({ company, onClose }: CompanyDetailProps) 
               ) : (
                 <p className="text-xs text-white/25">Market data unavailable</p>
               )}
+
+              {/* Price History Chart */}
+              <PriceHistoryChart companyId={company.id} />
             </div>
           )}
 
