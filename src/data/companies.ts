@@ -16,7 +16,7 @@ export const companies: Company[] = [
     tags: ["earth observation", "satellite imagery", "daily monitoring", "smallsat"],
     website: "https://www.planet.com",
     financial: { ticker: "PL", exchange: "NYSE" },
-    marketCap: "~$2.2B",
+    marketCap: "~$8.5B",
   },
   {
     id: "maxar",
@@ -47,7 +47,7 @@ export const companies: Company[] = [
     tags: ["earth observation", "defense", "radar", "optical", "Pl\u00e9iades Neo"],
     website: "https://www.airbus.com/en/space",
     financial: { ticker: "AIR.PA", exchange: "Euronext" },
-    marketCap: "~$120B",
+    marketCap: "~$172B",
   },
   {
     id: "blacksky",
@@ -63,7 +63,7 @@ export const companies: Company[] = [
     tags: ["real-time", "geoint", "AI", "monitoring", "Spectra AI"],
     website: "https://www.blacksky.com",
     financial: { ticker: "BKSY", exchange: "NYSE" },
-    marketCap: "~$500M",
+    marketCap: "~$680M",
   },
   {
     id: "satellogic",
@@ -79,7 +79,7 @@ export const companies: Company[] = [
     tags: ["hyperspectral", "multispectral", "sub-meter", "constellation", "Argentina"],
     website: "https://www.satellogic.com",
     financial: { ticker: "SATL", exchange: "NASDAQ" },
-    marketCap: "~$200M",
+    marketCap: "~$350M",
   },
   {
     id: "earthdaily",
@@ -109,7 +109,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["VLEO", "thermal", "ultra-high resolution", "10cm", "Series B"],
     website: "https://www.albedo.com",
-    funding: { totalRaised: "$132M+", lastRound: "Series B" },
+    funding: { totalRaised: "$132M+", valuation: "~$285M", lastRound: "Series B (Apr 2025)" },
   },
   {
     id: "chang-guang",
@@ -237,7 +237,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["SAR", "radar", "all-weather", "flood monitoring", "unicorn"],
     website: "https://www.iceye.com",
-    funding: { totalRaised: "$518M+", lastRound: "Series E", valuation: "$1B+" },
+    funding: { totalRaised: "~$700M+", lastRound: "Series E (Dec 2025, €150M)", valuation: "~$2.8B" },
   },
   {
     id: "capella-space",
@@ -246,13 +246,13 @@ export const companies: Company[] = [
     capabilities: ["Data Collection", "Data Processing", "Platform / Infrastructure"],
     sensorTypes: ["SAR / Radar"],
     description:
-      "Delivers sub-25cm X-band SAR imagery on-demand. Series D, $300M+ raised.",
+      "Delivers sub-25cm X-band SAR imagery on-demand. Acquired by IonQ in 2025 (all-stock). ~$250M raised.",
     founded: 2016,
     hq: "San Francisco, CA",
     size: "Growth",
-    tags: ["SAR", "X-band", "on-demand", "high resolution"],
+    tags: ["SAR", "X-band", "on-demand", "high resolution", "acquired by IonQ"],
     website: "https://www.capellaspace.com",
-    funding: { totalRaised: "$300M+", lastRound: "Series D" },
+    funding: { totalRaised: "~$250M", lastRound: "Acquired by IonQ (2025, all-stock)" },
   },
   {
     id: "umbra",
@@ -267,7 +267,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["SAR", "ultra-high resolution", "API", "tasking"],
     website: "https://www.umbra.space",
-    funding: { totalRaised: "$115M+", lastRound: "Series B" },
+    funding: { totalRaised: "~$168M", lastRound: "Series B + STRATFI" },
   },
   {
     id: "mda-space",
@@ -299,7 +299,7 @@ export const companies: Company[] = [
     tags: ["SAR", "StriX", "infrastructure", "disaster response", "Japan"],
     website: "https://www.synspective.com",
     financial: { ticker: "290A.T", exchange: "TSE" },
-    marketCap: "~¥50B",
+    marketCap: "~$896M",
   },
   {
     id: "iqps",
@@ -449,7 +449,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["RF signals", "SIGINT", "geolocation", "spectrum", "maritime security"],
     website: "https://www.he360.com",
-    funding: { totalRaised: "$378M+", lastRound: "Series D-1" },
+    funding: { totalRaised: "$411M+", lastRound: "Series E (Dec 2025, $150M)" },
   },
   {
     id: "kleos-space",
@@ -496,7 +496,7 @@ export const companies: Company[] = [
     tags: ["weather", "maritime tracking", "AIS", "nanosatellite", "multi-mission"],
     website: "https://www.spire.com",
     financial: { ticker: "SPIR", exchange: "NYSE" },
-    marketCap: "~$700M",
+    marketCap: "~$320M",
   },
   {
     id: "ghgsat",
@@ -511,7 +511,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["emissions", "methane", "carbon", "ESG", "facility-level"],
     website: "https://www.ghgsat.com",
-    funding: { totalRaised: "$130M+", lastRound: "Series D" },
+    funding: { totalRaised: "~$179M", lastRound: "Series C (Sep 2025, CAD $47M)" },
   },
   {
     id: "carbon-mapper",
@@ -555,7 +555,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["weather", "radar", "precipitation", "forecasting", "AI-native"],
     website: "https://www.tomorrow.io",
-    funding: { totalRaised: "$420M+", lastRound: "Series F", valuation: "~$1B+" },
+    funding: { totalRaised: "~$500M+", lastRound: "Feb 2026, $175M", valuation: ">$1B (unicorn)" },
   },
   {
     id: "planetiq",
@@ -600,7 +600,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["LEO PNT", "anti-jam", "centimeter accuracy", "GPS alternative"],
     website: "https://www.xonaspace.com",
-    funding: { totalRaised: "$150M+", lastRound: "Series B" },
+    funding: { totalRaised: "$157M+", lastRound: "Series B (Jun 2025, $72M) + STRATFI" },
   },
   {
     id: "swift-navigation",
@@ -615,7 +615,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["precise positioning", "GNSS", "centimeter accuracy", "Sapcorda"],
     website: "https://www.swiftnav.com",
-    funding: { totalRaised: "$160M+", lastRound: "Series D" },
+    funding: { totalRaised: "~$250M", lastRound: "Series E (Jul 2025, $50M)" },
   },
   {
     id: "ororatech",
@@ -674,7 +674,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["climate", "wildfire", "weather", "multimodal"],
     website: "https://www.muonspace.com",
-    funding: { totalRaised: "$87M+", lastRound: "Series B" },
+    funding: { totalRaised: "~$182M", lastRound: "Series B1 (Jun 2025, $89.5M)" },
   },
   // ─────────────────────────── AERIAL ───────────────────────────
   {
@@ -705,7 +705,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["autonomous drone", "AI", "3D scan", "inspection", "unicorn"],
     website: "https://www.skydio.com",
-    funding: { totalRaised: "$740M+", lastRound: "Series F", valuation: "$2.2B" },
+    funding: { totalRaised: "~$841M", lastRound: "Series E ext. ($170M)", valuation: "~$2.2B" },
   },
   {
     id: "wingtra",
@@ -1637,7 +1637,7 @@ export const companies: Company[] = [
     tags: ["marine survey", "geotechnical", "offshore", "geodata", "EUR1.8B revenue"],
     website: "https://www.fugro.com",
     financial: { ticker: "FUR.AS", exchange: "Euronext" },
-    marketCap: "~€5B (~$5.5B)",
+    marketCap: "~€1.3B (~$1.5B)",
   },
   {
     id: "kongsberg",
@@ -1653,7 +1653,7 @@ export const companies: Company[] = [
     tags: ["multibeam", "hydrographic", "sonar", "marine electronics", "HUGIN AUV"],
     website: "https://www.kongsberg.com",
     financial: { ticker: "KOG.OL", exchange: "Oslo" },
-    marketCap: "~NOK 130B (~$12B)",
+    marketCap: "~NOK 290B (~$34B)",
   },
   {
     id: "saildrone",
@@ -1668,7 +1668,7 @@ export const companies: Company[] = [
     size: "Growth",
     tags: ["USV", "ocean data", "autonomous", "maritime", "Lockheed-backed"],
     website: "https://www.saildrone.com",
-    funding: { totalRaised: "$190M+", lastRound: "Series C" },
+    funding: { totalRaised: "~$325M", valuation: "~$575M", lastRound: "Series C-1 + EUR 60M (2025)" },
   },
   {
     id: "sofar-ocean",
@@ -1894,7 +1894,7 @@ export const companies: Company[] = [
     tags: ["ADCP", "side-scan sonar", "subsea imaging", "24 brands"],
     website: "https://www.teledynemarine.com",
     financial: { ticker: "TDY", exchange: "NYSE" },
-    marketCap: "~$21B",
+    marketCap: "~$32B",
   },
   {
     id: "oceaneering",
@@ -2016,7 +2016,7 @@ export const companies: Company[] = [
     size: "Startup",
     tags: ["AUV", "digital twin", "seafloor mapping", "offshore wind"],
     website: "https://www.bedrockoce.com",
-    funding: { totalRaised: "~$30M", lastRound: "Series A" },
+    funding: { totalRaised: "~$63M", lastRound: "Series A-2 (Jun 2025, $25M)" },
   },
   {
     id: "advanced-navigation",
@@ -2276,7 +2276,7 @@ export const companies: Company[] = [
     tags: ["defense", "GEOINT", "data fusion", "AI platform", "$100B+ market cap"],
     website: "https://www.palantir.com",
     financial: { ticker: "PLTR", exchange: "NASDAQ" },
-    marketCap: "~$120B",
+    marketCap: "~$340B",
   },
   {
     id: "bentley-systems",
@@ -2292,7 +2292,7 @@ export const companies: Company[] = [
     tags: ["digital twin", "infrastructure", "BIM", "acquired Cesium"],
     website: "https://www.bentley.com",
     financial: { ticker: "BSY", exchange: "NASDAQ" },
-    marketCap: "~$15B",
+    marketCap: "~$11B",
   },
   {
     id: "safe-software",
@@ -2482,13 +2482,13 @@ export const companies: Company[] = [
     capabilities: ["Platform / Infrastructure", "Data Processing"],
     sensorTypes: ["Optical / RGB", "SAR / Radar", "Multispectral"],
     description:
-      "Airbus subsidiary aggregating optical, SAR, elevation, and hyperspectral data with processing algorithms via API.",
+      "Geospatial data marketplace aggregating optical, SAR, elevation, and hyperspectral data with processing via API. Acquired by Neo Space Group (Saudi PIF) in 2025.",
     founded: 2019,
     hq: "Berlin, Germany",
     size: "Growth",
-    tags: ["marketplace", "API", "developer platform", "Airbus subsidiary"],
+    tags: ["marketplace", "API", "developer platform", "acquired by Neo Space Group"],
     website: "https://up42.com",
-    funding: { totalRaised: "~$20M+" },
+    funding: { lastRound: "Acquired by Neo Space Group (2025)" },
   },
   {
     id: "skywatch",
@@ -2683,7 +2683,7 @@ export const companies: Company[] = [
     tags: ["space logistics", "edge computing", "ION Carrier", "Italy"],
     website: "https://www.dorbit.space",
     financial: { ticker: "OBIT", exchange: "NASDAQ" },
-    marketCap: "~$100M",
+    funding: { totalRaised: "~$259M" },
   },
   {
     id: "descartes-labs",
@@ -2833,7 +2833,7 @@ export const companies: Company[] = [
     tags: ["defense", "GEOINT", "communications", "$45B market cap"],
     website: "https://www.l3harris.com",
     financial: { ticker: "LHX", exchange: "NYSE" },
-    marketCap: "~$45B",
+    marketCap: "~$67B",
   },
   {
     id: "leidos",
