@@ -1,39 +1,41 @@
 {
-      "name": "spatialhorizon",
-      "version": "1.0.0",
-      "description": "",
-      "main": "index.js",
-      "scripts": {
-              "dev": "next dev",
-              "build": "next build",
-              "start": "next start",
-              "lint": "next lint"
-      },
-      "repository": {
-              "type": "git",
-              "url": "http://local_proxy@127.0.0.1:46877/git/kwamesompimpong-build/spatialhorizon"
-      },
-      "prisma": {
-              "seed": "npx tsx prisma/seed.ts"
-      },
-      "keywords": [],
-      "author": "",
-      "license": "ISC",
-      "dependencies": {
-              "@prisma/adapter-better-sqlite3": "^7.4.2",
-              "@prisma/client": "^7.4.2",
-              "@tailwindcss/postcss": "^4.2.1",
-              "@types/node": "^25.3.3",
-              "@types/react": "^19.2.14",
-              "dotenv": "^17.3.1",
-              "next": "^16.1.6",
-              "postcss": "^8.5.6",
-              "prisma": "^7.4.2",
-              "react": "^19.2.4",
-              "react-dom": "^19.2.4",
-              "tailwindcss": "^4.2.1",
-              "tsx": "^4.21.0",
-              "typescript": "^5.9.3"
-      },
-      "devDependencies": {}
+  "name": "spatialhorizon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:46877/git/kwamesompimpong-build/spatialhorizon"
+  },
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.4.2",
+    "@prisma/client": "^7.4.2",
+    "cobe": "^0.6.5",
+    "dotenv": "^17.3.1",
+    "next": "^16.1.6",
+    "prisma": "^7.4.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.3.3",
+    "@types/react": "^19.2.14",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
 }
