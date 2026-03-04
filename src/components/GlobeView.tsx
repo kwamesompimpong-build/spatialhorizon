@@ -12,12 +12,55 @@ interface GlobeMarker {
   city: string;
 }
 
+interface MarkerPopup {
+  marker: GlobeMarker;
+  x: number;
+  y: number;
+}
+
 function getDomainColorRGB(domain: DomainLayer): [number, number, number] {
   const hex = DOMAIN_COLORS[domain];
   const r = parseInt(hex.slice(1, 3), 16) / 255;
   const g = parseInt(hex.slice(3, 5), 16) / 255;
   const b = parseInt(hex.slice(5, 7), 16) / 255;
   return [r, g, b];
+}
+
+// Project a lat/lng coordinate to screen position based on globe rotation
+function projectToScreen(
+  lat: number,
+  lng: number,
+  phi: number,
+  theta: number,
+  canvasWidth: number,
+  canvasHeight: number
+): { x: number; y: number; visible: boolean } {
+  const latRad = (lat * Math.PI) / 180;
+  const lngRad = (lng * Math.PI) / 180;
+
+  // Compute effective longitude relative to the viewer
+  const effectiveLng = lngRad + phi - Math.PI;
+
+  // Position on unit sphere (adjusted for viewer orientation)
+  const sx = Math.cos(latRad) * Math.sin(effectiveLng);
+  const sy = -Math.sin(latRad);
+  const sz = Math.cos(latRad) * Math.cos(effectiveLng);
+
+  // Apply theta tilt (rotation around X axis)
+  const fx = sx;
+  const fy = sy * Math.cos(theta) + sz * Math.sin(theta);
+  const fz = -sy * Math.sin(theta) + sz * Math.cos(theta);
+
+  // Globe fills ~90% of the canvas
+  const radius = canvasWidth * 0.45;
+  const centerX = canvasWidth / 2;
+  const centerY = canvasHeight / 2;
+
+  return {
+    x: fx * radius + centerX,
+    y: fy * radius + centerY,
+    visible: fz > 0,
+  };
 }
 
 export default function GlobeView({
@@ -30,8 +73,11 @@ export default function GlobeView({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+  const pointerStartPos = useRef<{ x: number; y: number } | null>(null);
   const phiRef = useRef(0);
+  const THETA = 0.25;
   const [focusedCity, setFocusedCity] = useState<string | null>(null);
+  const [markerPopup, setMarkerPopup] = useState<MarkerPopup | null>(null);
 
   // Group companies by HQ city
   const markers: GlobeMarker[] = useMemo(() => {
@@ -74,14 +120,69 @@ export default function GlobeView({
     (city: string) => {
       const coords = HQ_COORDINATES[city];
       if (!coords) return;
-      // Convert lat/lng to phi/theta for the globe
       const [lat, lng] = coords;
-      // phi = rotation around Y axis (longitude), theta = tilt (latitude)
-      // cobe uses phi for horizontal rotation, theta for vertical tilt
       phiRef.current = (-lng * Math.PI) / 180 + Math.PI;
       setFocusedCity(city);
+      setMarkerPopup(null);
     },
     []
+  );
+
+  // Find the nearest visible marker to a click position on the canvas
+  const handleCanvasClick = useCallback(
+    (clientX: number, clientY: number) => {
+      if (!canvasRef.current) return;
+
+      const rect = canvasRef.current.getBoundingClientRect();
+      const clickX = clientX - rect.left;
+      const clickY = clientY - rect.top;
+      const canvasWidth = rect.width;
+      const canvasHeight = rect.height;
+
+      let closestMarker: GlobeMarker | null = null;
+      let closestDist = Infinity;
+
+      for (const marker of markers) {
+        const projected = projectToScreen(
+          marker.location[0],
+          marker.location[1],
+          phiRef.current,
+          THETA,
+          canvasWidth,
+          canvasHeight
+        );
+
+        if (!projected.visible) continue;
+
+        const dist = Math.sqrt(
+          (clickX - projected.x) ** 2 + (clickY - projected.y) ** 2
+        );
+
+        // Hit threshold scales with marker size, minimum 18px
+        const threshold = Math.max(18, marker.size * canvasWidth * 0.6);
+
+        if (dist < threshold && dist < closestDist) {
+          closestDist = dist;
+          closestMarker = marker;
+        }
+      }
+
+      if (closestMarker) {
+        if (closestMarker.companies.length === 1) {
+          onCompanyClick(closestMarker.companies[0]);
+        } else {
+          // Show popup for cities with multiple companies
+          setMarkerPopup({
+            marker: closestMarker,
+            x: clickX,
+            y: clickY,
+          });
+        }
+      } else {
+        setMarkerPopup(null);
+      }
+    },
+    [markers, onCompanyClick]
   );
 
   useEffect(() => {
@@ -101,7 +202,7 @@ export default function GlobeView({
       width: width * 2,
       height: width * 2,
       phi: 0,
-      theta: 0.25,
+      theta: THETA,
       dark: 1,
       diffuse: 1.2,
       mapSamples: 20000,
@@ -141,14 +242,26 @@ export default function GlobeView({
             style={{ contain: "layout paint size" }}
             onPointerDown={(e) => {
               pointerInteracting.current = e.clientX - pointerInteractionMovement.current;
+              pointerStartPos.current = { x: e.clientX, y: e.clientY };
               canvasRef.current!.style.cursor = "grabbing";
+              setMarkerPopup(null);
             }}
-            onPointerUp={() => {
+            onPointerUp={(e) => {
+              // Detect click (minimal movement) vs drag
+              if (pointerStartPos.current) {
+                const dx = e.clientX - pointerStartPos.current.x;
+                const dy = e.clientY - pointerStartPos.current.y;
+                if (Math.sqrt(dx * dx + dy * dy) < 5) {
+                  handleCanvasClick(e.clientX, e.clientY);
+                }
+              }
               pointerInteracting.current = null;
+              pointerStartPos.current = null;
               canvasRef.current!.style.cursor = "grab";
             }}
             onPointerOut={() => {
               pointerInteracting.current = null;
+              pointerStartPos.current = null;
               if (canvasRef.current) canvasRef.current.style.cursor = "grab";
             }}
             onMouseMove={(e) => {
@@ -168,10 +281,55 @@ export default function GlobeView({
               }
             }}
           />
+
+          {/* Marker click popup */}
+          {markerPopup && (
+            <div
+              className="absolute z-10 bg-[#0a0a1a]/95 border border-white/10 rounded-lg shadow-xl backdrop-blur-sm py-1.5 min-w-[180px] max-w-[240px]"
+              style={{
+                left: Math.max(90, Math.min(markerPopup.x, 510)),
+                top: Math.max(10, markerPopup.y),
+                transform: "translate(-50%, -100%) translateY(-10px)",
+              }}
+            >
+              <div className="text-[10px] text-white/40 px-3 pb-1 border-b border-white/[0.06] mb-1">
+                {markerPopup.marker.city}
+                <span className="text-white/20 ml-1">
+                  ({markerPopup.marker.companies.length})
+                </span>
+              </div>
+              <div className="max-h-[200px] overflow-y-auto">
+                {markerPopup.marker.companies.map((c) => {
+                  const color = DOMAIN_COLORS[c.domain];
+                  return (
+                    <button
+                      key={c.id}
+                      onClick={() => {
+                        onCompanyClick(c);
+                        setMarkerPopup(null);
+                      }}
+                      className="w-full text-left text-[11px] px-3 py-1.5 hover:bg-white/[0.08] transition-colors flex items-center gap-2"
+                    >
+                      <div
+                        className="w-2 h-2 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: color }}
+                      />
+                      <span className="text-white/80 truncate">{c.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
 
+        {/* Hint */}
+        <p className="text-center text-[10px] text-white/20 mt-1">
+          Click markers on the globe to view company details
+        </p>
+
         {/* Domain legend */}
-        <div className="flex flex-wrap justify-center gap-3 mt-4">
+        <div className="flex flex-wrap justify-center gap-3 mt-3">
           {domainSummary.map(([domain, count]) => (
             <div key={domain} className="flex items-center gap-1.5">
               <div
