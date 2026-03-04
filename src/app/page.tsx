@@ -15,9 +15,10 @@ import FilterBar from "@/components/FilterBar";
 import DomainLane from "@/components/DomainLane";
 import CompanyDetail from "@/components/CompanyDetail";
 import StatsBar from "@/components/StatsBar";
+import GlobeView from "@/components/GlobeView";
 import { getDomainIcon } from "@/components/DomainIcons";
 
-type ViewMode = "map" | "stats";
+type ViewMode = "map" | "stats" | "globe";
 
 export default function Home() {
   const [companies, setCompanies] = useState<Company[]>(staticCompanies);
@@ -187,6 +188,16 @@ export default function Home() {
                   Market Map
                 </button>
                 <button
+                  onClick={() => setViewMode("globe")}
+                  className={`text-[11px] px-3 py-1.5 rounded-md transition-all ${
+                    viewMode === "globe"
+                      ? "bg-white/10 text-white shadow-sm"
+                      : "text-white/40 hover:text-white/60"
+                  }`}
+                >
+                  Globe
+                </button>
+                <button
                   onClick={() => setViewMode("stats")}
                   className={`text-[11px] px-3 py-1.5 rounded-md transition-all ${
                     viewMode === "stats"
@@ -262,6 +273,8 @@ export default function Home() {
           <div>
             {viewMode === "stats" ? (
               <StatsBar companies={filteredCompanies} />
+            ) : viewMode === "globe" ? (
+              <GlobeView companies={filteredCompanies} onCompanyClick={setSelectedCompany} />
             ) : (
               <div className="space-y-6">
                 {/* Orbit → Seabed scale */}
